@@ -53,7 +53,7 @@
       <p class="lead">Restaurants, clubs and wine bars keep members’ bottles for the same reason: it brings them back. Horreum makes the keeping precise — and turns the program into something members talk about.</p>
       <div class="cta-row"><a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo</a><a class="btn btn--ghost btn--lg" href="/pricing">Pricing</a></div>
     </div>
-    <div class="phone"><img src="/assets/shots/hunt.jpg" alt="The staff Find-a-bottle screen: the wine, whose locker, each bottle’s storage spot and label, and a live scanner" loading="lazy"></div>
+    <div class="phone"><div class="phone-body"><img src="/assets/shots/hunt.jpg" alt="The staff Find-a-bottle screen: the wine, whose locker, each bottle’s storage spot and tag, and a live scanner" loading="lazy" width="390" height="844"></div></div>
   </div>
 </section>
 
@@ -63,7 +63,7 @@
       <div>
         <p class="eyebrow">The ledger</p>
         <h2>One record. Everyone works from it.</h2>
-        <p>Every member has a locker; every locker has its bottles; every bottle has a label, a home, and a history. House-purchased bottles come from your catalog. Bottles a member brings in are recorded as their own, with whatever details you have. Nothing is a duplicate of anything, and nothing lives in someone’s head.</p>
+        <p>Every member has a locker; every locker has its bottles; every bottle has a tag, a home, and a history. House-purchased bottles come from your catalog. Bottles a member brings in are recorded as their own, with whatever details you have. Nothing is a duplicate of anything, and nothing lives in someone’s head.</p>
         <ul>
           <li>Members and lockers per location, with contact details and a since date.</li>
           <li>Bottles grouped by wine, one line per physical bottle underneath.</li>
@@ -74,10 +74,10 @@
       <div>
         <p class="eyebrow">Labels</p>
         <h2>A label lifecycle that wastes nothing.</h2>
-        <p>Codes are minted by the platform in batches of thirty — one 30-up Avery sheet — and registered before they are printed. A code is unassigned until it is scanned onto a bottle, assigned while the bottle is in the locker, and pending return once the bottle is pulled, so a tag can be reclaimed and used again. The stocking screen checks each code before it saves: a taken, voided or foreign label is refused there, never mid-save.</p>
+        <p>Codes are minted by the platform in batches and registered before the labels are made; Horreum ships them to your venue ready to use, so there is nothing to print. A code is unassigned until it is scanned onto a bottle, assigned while the bottle is in the locker, and pending return once the bottle is pulled, so a tag can be reclaimed and used again. The stocking screen checks each code before it saves: a taken, voided or foreign label is refused there, never mid-save.</p>
         <ul>
-          <li>Reprint an identical sheet any time; void a batch that never made it out of the printer.</li>
-          <li>A check digit in every code catches a mistyped label before it can be saved to the wrong bottle.</li>
+          <li>Ask for another batch when you run low; void a batch that goes missing.</li>
+          <li>A check digit in every code catches a mistyped tag before it can be saved to the wrong bottle.</li>
           <li>Reclaiming tags is a permission you grant, like adding bottles.</li>
         </ul>
       </div>
@@ -93,11 +93,11 @@
       <p class="lead">A member taps a bottle in their collection and shows the server a code. The server scans it — in the app, or with the phone’s own camera — and this opens.</p>
     </div>
     <div class="split">
-      <div class="phone"><img src="/assets/shots/hunt.jpg" alt="The Find-a-bottle screen" loading="lazy"></div>
+      <div class="phone"><div class="phone-body"><img src="/assets/shots/hunt.jpg" alt="The Find-a-bottle screen" loading="lazy" width="390" height="844"></div></div>
       <div>
         <ul>
-          <li><b>The wine, whose locker,</b> and one row per bottle with where it sits and which label it wears.</li>
-          <li><b>A live scanner.</b> Scan a label: <i>This is it</i>, or <i>Not this one — that’s a different member’s Sancerre</i>. A wrong bottle never leaves the cooler.</li>
+          <li><b>The wine, whose locker,</b> and one row per bottle with where it sits and which tag it wears.</li>
+          <li><b>A live scanner.</b> Scan a bottle’s tag: <i>This is it</i>, or <i>Not this one — that’s a different member’s Sancerre</i>. A wrong bottle never leaves the cooler.</li>
           <li><b>A bottle-exact pull.</b> The label that leaves is the label the system releases. Servers without approval rights submit the pull; a manager approves that exact bottle.</li>
           <li><b>Several of the same bottle?</b> Any of them satisfies the hunt. The code belongs to the wine in that locker, not to one bottle.</li>
           <li><b>It persists.</b> The screen stays until you close it; scanning a second member’s code simply replaces it.</li>
@@ -110,7 +110,7 @@
 <section class="sec">
   <div class="wrap">
     <div class="grid grid--3">
-      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 4.5a3 3 0 0 1 0 6"/><path d="M17 13.5a5.5 5.5 0 0 1 3.5 5.5"/></svg></span><h3>Roles and approvals</h3><p>Directors, managers, servers and bartenders — each account carries its own permissions: add bottles, log pulls, approve pulls, manage the catalog, print labels, reclaim tags. Floor staff submit; managers approve. The database enforces every one of them.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 4.5a3 3 0 0 1 0 6"/><path d="M17 13.5a5.5 5.5 0 0 1 3.5 5.5"/></svg></span><h3>Roles and approvals</h3><p>Directors, managers, servers and bartenders — each account carries its own permissions: add bottles, log pulls, approve pulls, manage the catalog, manage labels, reclaim tags. Floor staff submit; managers approve. The database enforces every one of them.</p></div>
       <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/></svg></span><h3>Activity, append-only</h3><p>Every add, pull, request, catalog change and staff edit, with the actor and the moment. Filter by today, this week, last month or your own range, and by kind. Nothing is edited after the fact; corrections are new entries.</p></div>
       <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-1.5 3-5 5-5 9a5 5 0 0 0 10 0c0-4-3.5-6-5-9z"/><path d="M12 21v-4"/></svg></span><h3>Catalog and tasting notes</h3><p>Your list per location with vintages, varietals, regions and locker prices; search and filter it like a member would. Horreum writes the tasting note for every wine — long-form and guest-ready, in one voice across the platform — so the floor can recommend with confidence.</p></div>
       <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><h3>Members, invited properly</h3><p>Add a member, send the invitation, and they set up their account with a code from their email — no expiring links, no passwords in transit. Announcements go to everyone; conversations are one to one.</p></div>
@@ -126,23 +126,23 @@
       <div>
         <p class="eyebrow">Getting set up</p>
         <h2>Members are imported. Bottles are scanned in.</h2>
-        <p class="lead">Your member and locker records — the spreadsheet, the binder, the PDF from the last count — are imported for you. The bottles themselves are not: every one is labelled and scanned into its locker by hand, wine by wine. That is the work, and it is the point — from that moment the record is exact, and it stays that way.</p>
+        <p class="lead">Your member and locker records — the spreadsheet, the binder, the PDF from the last count — are imported for you. The bottles themselves are not: every one is tagged and scanned into its locker by hand, wine by wine — the tag is scanned, then the wine is picked from your catalog or entered if it is new. That is the work, and it is the point — from that moment the record is exact, and it stays that way.</p>
         <ul>
           <li>Members and lockers imported and reconciled before you start.</li>
-          <li>Your first label batches printed and registered with you; wines not yet in your catalog are entered as they come up.</li>
+          <li>Your first label batches arrive registered to your venue; wines not yet in your catalog have their basics entered as they come up.</li>
           <li>Plan for the scan-in: a couple of minutes a bottle, more when a wine is new to the catalog. A program of several hundred bottles is a few afternoons for two people.</li>
           <li>Staff accounts created with the right roles; members invited when you say so.</li>
-          <li>What you need: a printer, 30-up Avery label sheets, and the phones your team already carries.</li>
+          <li>What you need: the phones your team already carries. The labels come from us.</li>
         </ul>
       </div>
       <div class="price-card price-card--night">
-        <p class="eyebrow">Per location</p>
-        <h3 style="font-size:28px;margin:6px 0 4px">One subscription</h3>
-        <div class="per">per month · everything included</div>
+        <p class="eyebrow">Pricing</p>
+        <h3 style="font-size:28px;margin:6px 0 4px">Priced to your program</h3>
+        <div class="per">no per-seat fees · no per-member fees · no hardware</div>
         <ul>
           <li>Unlimited members, lockers and bottles</li>
           <li>Unlimited staff accounts and roles</li>
-          <li>Label batches, reprints and reclaims</li>
+          <li>QR labels, shipped to your venue</li>
           <li>The member app, white-labelled</li>
           <li>Tasting notes written by Horreum</li>
           <li>Import of your member and locker records</li>
@@ -164,7 +164,7 @@
       </div>
       <div><h4>Product</h4><a href="/venues">For venues</a><a href="/members">For members</a><a href="/pricing">Pricing</a><a href="/security">Security</a><a href="https://app.horreum.cloud">Sign in</a></div>
       <div><h4>Company</h4><a href="/about">About</a><a href="/contact">Contact</a><a href="/contact?kind=demo">Request a demo</a></div>
-      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
+      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
     </div>
     <div class="fine"><span>© <span data-hz="year">2026</span> HORREUM LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/security">Security</a></span></div>
   </div>

@@ -58,7 +58,7 @@
     <p>Every row in the database belongs to a venue, and Postgres row-level security decides who can read or write it. A member sees their own locker; staff see the locations they are assigned to; a venue never sees another venue. These rules are enforced by the database on every query — not by the app, and not by a screen that could be bypassed.</p>
 
     <h2>Permissions, enforced in the database</h2>
-    <p>Actions that change records — adding a bottle, logging a pull, approving one, printing labels, reclaiming tags, editing the catalog — run as guarded database functions that check the caller’s role and permissions before doing anything. Hiding a button is a courtesy; the database is the control.</p>
+    <p>Actions that change records — adding a bottle, logging a pull, approving one, minting labels, reclaiming tags, editing the catalog — run as guarded database functions that check the caller’s role and permissions before doing anything. Hiding a button is a courtesy; the database is the control.</p>
 
     <h2>Sign-in</h2>
     <p>Accounts are set up and recovered with one-time codes sent to the account’s email, and protected with a password the account holder chooses. Passwords are stored only as salted hashes by the authentication provider. Changing a password requires a fresh code, even from a signed-in device.</p>
@@ -76,7 +76,7 @@
     <p>A venue can request a complete export of its records at any time and receives one on leaving the platform. Members can ask their venue, or us, to correct or delete their personal information — see the <a href="/privacy">privacy policy</a>.</p>
 
     <h2>Reporting a concern</h2>
-    <p>If you believe you have found a security issue, write to <a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a> with the subject line <i>Security</i>. We read those first, and we will not pursue anyone who reports a problem in good faith.</p>
+    <p>If you believe you have found a security issue, write to <a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a> with the subject line <i>Security</i>. We read those first, and we will not pursue anyone who reports a problem in good faith.</p>
   </div>
 </section>
 
@@ -91,7 +91,7 @@
       </div>
       <div><h4>Product</h4><a href="/venues">For venues</a><a href="/members">For members</a><a href="/pricing">Pricing</a><a href="/security">Security</a><a href="https://app.horreum.cloud">Sign in</a></div>
       <div><h4>Company</h4><a href="/about">About</a><a href="/contact">Contact</a><a href="/contact?kind=demo">Request a demo</a></div>
-      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
+      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
     </div>
     <div class="fine"><span>© <span data-hz="year">2026</span> HORREUM LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/security">Security</a></span></div>
   </div>

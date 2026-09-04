@@ -33,8 +33,8 @@ Two ways:
    page from `_build/pages_a.py`, `_build/pages_b.py` and `_build/shell.py`. If you edit the HTML by
    hand, don't run the generator afterwards (it will overwrite your edits).
 
-Pricing is by inquiry (no number on the site). The addresses the site quotes (`hello@`, `support@`)
-live in `assets/site.js`; make sure both mailboxes or aliases exist in Google Workspace.
+Pricing is by inquiry (no number on the site). The one address the site quotes (`gabriel@horreum.cloud`)
+lives in `assets/site.js`; change it there and every page follows.
 
 ## Deploy — GitHub Pages at the apex (recommended)
 

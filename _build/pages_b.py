@@ -36,7 +36,7 @@ ABOUT = f'''
 
     <h2>The company</h2>
     <p>Horreum is made by HORREUM LLC, a Michigan company based in Grand Rapids and founded in 2026. It is independent and founder-owned.</p>
-    <p><a href="/contact">Get in touch</a> · <a href="mailto:hello@horreum.cloud" data-hz="email">hello@horreum.cloud</a></p>
+    <p><a href="/contact">Get in touch</a> · <a href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a></p>
   </div>
 </section>
 '''
@@ -50,7 +50,7 @@ CONTACT = f'''
         <p class="eyebrow">Contact</p>
         <h1 style="font-size:clamp(36px,5vw,54px)">See it on your floor.</h1>
         <p class="lead">A thirty-minute walkthrough with the person who built it — on a call, or at your venue if you are in West Michigan. Bring your binder. Ask about pricing and you’ll have a number the same day.</p>
-        <p class="small">Prefer email? <a href="mailto:hello@horreum.cloud" data-hz="email">hello@horreum.cloud</a>. Already a member or on staff at a venue? <a href="/support">Support is this way</a>.</p>
+        <p class="small">Prefer email? <a href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a>. Already a member or on staff at a venue? <a href="/support">Support is this way</a>.</p>
         <p class="small muted">HORREUM LLC · Grand Rapids, Michigan · Replies within one business day.</p>
       </div>
       <form class="form" data-lead="demo" novalidate>
@@ -86,7 +86,7 @@ SUPPORT = f'''
     <p class="eyebrow">Support</p>
     <h1 style="font-size:clamp(36px,5vw,54px)">Help, from people who use it.</h1>
     <p class="lead">The quickest way to reach us from inside the app is <b>Report a bug</b> in your profile menu — it arrives with the details we need. Otherwise, everything below.</p>
-    <div class="cta-row"><a class="btn btn--gold" href="{APP}">Open the app</a><a class="btn btn--ghost" href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a></div>
+    <div class="cta-row"><a class="btn btn--gold" href="{APP}">Open the app</a><a class="btn btn--ghost" href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a></div>
   </div>
 </section>
 
@@ -105,8 +105,8 @@ SUPPORT = f'''
 
     <h2 style="margin-top:56px">For venue staff</h2>
     <div class="faq">
-      <details><summary>A label code is refused when I add a bottle.</summary><div class="a"><p>Every code is checked before it saves. <i>Already on a bottle</i> means that label is assigned; <i>failed its check digit</i> means a typo; <i>not a registered label</i> means the code was never minted for your venue. Use a code from one of your printed batches.</p></div></details>
-      <details><summary>The printer jammed. Are those labels lost?</summary><div class="a"><p>No. Reprint the batch — the codes are identical — or void the batch if it never printed. Codes only enter circulation when they are scanned onto a bottle.</p></div></details>
+      <details><summary>A tag’s code is refused when I add a bottle.</summary><div class="a"><p>Every code is checked before it saves. <i>Already on a bottle</i> means that label is assigned; <i>failed its check digit</i> means a typo; <i>not a registered label</i> means the code was never minted for your venue. Use a tag from one of the batches shipped to your venue.</p></div></details>
+      <details><summary>We are running low on labels.</summary><div class="a"><p>Write to us and another batch ships. Codes are registered before they leave and only enter circulation when they are scanned onto a bottle, so a batch that goes missing is simply voided.</p></div></details>
       <details><summary>A bottle was pulled and the tag came back. Can we reuse it?</summary><div class="a"><p>Yes. A pulled bottle’s tag is <i>pending return</i>. Anyone with the reclaim permission can reclaim it and it becomes available again.</p></div></details>
       <details><summary>I logged a pull but cannot approve it.</summary><div class="a"><p>Servers and bartenders submit pulls; managers, directors and admins approve them. The bottle stays in the locker until it is approved. Your manager can grant approval rights per account.</p></div></details>
       <details><summary>Where do I set up bar coolers and the walk-in?</summary><div class="a"><p>Storage spots live under <b>Locations</b> in the management console. Add a spot per place a bottle can physically sit; choose it when adding a bottle, or move a bottle from the locker view.</p></div></details>
@@ -152,7 +152,7 @@ SECURITY = f'''
     <p>Every row in the database belongs to a venue, and Postgres row-level security decides who can read or write it. A member sees their own locker; staff see the locations they are assigned to; a venue never sees another venue. These rules are enforced by the database on every query — not by the app, and not by a screen that could be bypassed.</p>
 
     <h2>Permissions, enforced in the database</h2>
-    <p>Actions that change records — adding a bottle, logging a pull, approving one, printing labels, reclaiming tags, editing the catalog — run as guarded database functions that check the caller’s role and permissions before doing anything. Hiding a button is a courtesy; the database is the control.</p>
+    <p>Actions that change records — adding a bottle, logging a pull, approving one, minting labels, reclaiming tags, editing the catalog — run as guarded database functions that check the caller’s role and permissions before doing anything. Hiding a button is a courtesy; the database is the control.</p>
 
     <h2>Sign-in</h2>
     <p>Accounts are set up and recovered with one-time codes sent to the account’s email, and protected with a password the account holder chooses. Passwords are stored only as salted hashes by the authentication provider. Changing a password requires a fresh code, even from a signed-in device.</p>
@@ -170,7 +170,7 @@ SECURITY = f'''
     <p>A venue can request a complete export of its records at any time and receives one on leaving the platform. Members can ask their venue, or us, to correct or delete their personal information — see the <a href="/privacy">privacy policy</a>.</p>
 
     <h2>Reporting a concern</h2>
-    <p>If you believe you have found a security issue, write to <a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a> with the subject line <i>Security</i>. We read those first, and we will not pursue anyone who reports a problem in good faith.</p>
+    <p>If you believe you have found a security issue, write to <a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a> with the subject line <i>Security</i>. We read those first, and we will not pursue anyone who reports a problem in good faith.</p>
   </div>
 </section>
 '''
@@ -201,7 +201,7 @@ PRIVACY = f'''
 
     <h2>What the app asks your device for</h2>
     <ul>
-      <li><b>Camera</b> — only when staff scan a label or a member’s code. Images are processed on the device to read the code and are not stored.</li>
+      <li><b>Camera</b> — only when staff scan a bottle’s QR tag or a member’s code. Images are processed on the device to read the code and are not stored.</li>
       <li><b>Location</b> — only if you choose the automatic day-and-night theme, which needs sunrise and sunset times for where you are. Your coordinates are stored on your device and are not sent to Horreum.</li>
       <li><b>Local storage</b> — to keep you signed in and remember your theme. This website itself sets no cookies and uses no analytics or advertising trackers.</li>
     </ul>
@@ -237,7 +237,7 @@ PRIVACY = f'''
     <p>If this policy changes in a way that matters, we will say so in the app and update the date above. Continuing to use Horreum after a change means the new policy applies.</p>
 
     <h2>Contact</h2>
-    <p>HORREUM LLC, Grand Rapids, Michigan · <a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a></p>
+    <p>HORREUM LLC, Grand Rapids, Michigan · <a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a></p>
   </div>
 </section>
 '''
@@ -262,7 +262,7 @@ TERMS = f'''
 
     <h2>4. Venue subscriptions</h2>
     <ul>
-      <li><b>Fees.</b> The Service is billed per active location at the rate on the pricing page or in your order form, monthly in advance, plus any applicable taxes.</li>
+      <li><b>Fees.</b> The Service is billed at the rate in your order form, monthly in advance, plus any applicable taxes.</li>
       <li><b>Changes.</b> We may change the rate with at least thirty days’ written notice; the new rate applies from your next billing period after the notice.</li>
       <li><b>Payments.</b> If a Venue enables in-app payments, those payments are processed by Stripe under the Venue’s own Stripe account and Stripe’s terms. Horreum does not hold funds.</li>
       <li><b>Term and ending.</b> The subscription continues month to month until either party ends it with the notice set out in the order form, or thirty days if none is stated. On ending, the Venue receives a complete export of its records, and the Venue’s data is deleted from the platform within ninety days.</li>
@@ -297,7 +297,7 @@ TERMS = f'''
     <p>We may update these terms. Material changes will be announced in the app and dated above; a Venue that does not accept a change may end its subscription before the change takes effect.</p>
 
     <h2>14. Contact</h2>
-    <p>HORREUM LLC, Grand Rapids, Michigan · <a href="mailto:hello@horreum.cloud" data-hz="email">hello@horreum.cloud</a></p>
+    <p>HORREUM LLC, Grand Rapids, Michigan · <a href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a></p>
   </div>
 </section>
 '''

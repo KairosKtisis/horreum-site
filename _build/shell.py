@@ -39,7 +39,7 @@ def footer():
       </div>
       <div><h4>Product</h4><a href="/venues">For venues</a><a href="/members">For members</a><a href="/pricing">Pricing</a><a href="/security">Security</a><a href="{APP}">Sign in</a></div>
       <div><h4>Company</h4><a href="/about">About</a><a href="/contact">Contact</a><a href="/contact?kind=demo">Request a demo</a></div>
-      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
+      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
     </div>
     <div class="fine"><span>© <span data-hz="year">{YEAR}</span> HORREUM LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/security">Security</a></span></div>
   </div>

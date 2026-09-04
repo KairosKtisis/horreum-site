@@ -100,12 +100,19 @@ p { margin: 0 0 1em; }
 @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; gap: 36px; } .hero { padding-top: 44px; } }
 
 /* ── phone frame ─────────────────────────────────────────────────────────── */
-.phone { position: relative; width: min(100%, 320px); aspect-ratio: 390 / 844; margin: 0 auto; border-radius: 44px; background: #0E0B08; padding: 11px; box-shadow: 0 40px 80px -30px rgba(20,16,10,.6), 0 0 0 1px rgba(255,255,255,.06) inset; }
-.phone::after { content: ""; position: absolute; top: 20px; left: 50%; width: 92px; height: 26px; transform: translateX(-50%); border-radius: 14px; background: #0E0B08; }
-.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 34px; }
-.phone--sm { width: min(100%, 250px); border-radius: 36px; padding: 9px; }
-.phone--sm img { border-radius: 28px; }
-.phone--sm::after { top: 16px; width: 74px; height: 22px; }
+/* The frame is drawn in container units so every phone on the site — hero, split, or the
+   four-up row — is the same shape at any size. The screenshot sets the height (390×844 renders),
+   so nothing is ever cropped by the screen edge. */
+.phone { position: relative; width: min(100%, 320px); margin: 0 auto; container-type: inline-size; }
+.phone--sm { width: min(100%, 250px); }
+.phone-body { position: relative; border-radius: 44px; background: #0E0B08; padding: 11px; box-shadow: 0 40px 80px -30px rgba(20,16,10,.6), 0 0 0 1px rgba(255,255,255,.06) inset; }
+.phone-body::after { content: ""; position: absolute; top: 20px; left: 50%; width: 92px; height: 26px; transform: translateX(-50%); border-radius: 14px; background: #0E0B08; }
+.phone img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 34px; background: #1a1410; }
+@supports (width: 1cqw) {
+  .phone-body { border-radius: 13.75cqw; padding: 3.4375cqw; }
+  .phone-body::after { top: 6.25cqw; width: 28.75cqw; height: 8.125cqw; border-radius: 4.0625cqw; }
+  .phone img { border-radius: 10.625cqw; }
+}
 .phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; align-items: start; }
 .phones figcaption { text-align: center; margin-top: 14px; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 .phones figcaption span { display: block; margin-top: 6px; font-family: var(--serif); font-size: 16px; letter-spacing: 0; text-transform: none; color: var(--text-dim); font-style: italic; }

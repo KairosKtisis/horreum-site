@@ -7,8 +7,8 @@
   /* One place for the addresses the site quotes. Change them here, every page follows. */
   var HZ = {
     app: 'https://app.horreum.cloud',
-    email: 'hello@horreum.cloud',
-    support: 'support@horreum.cloud',
+    email: 'gabriel@horreum.cloud',
+    support: 'gabriel@horreum.cloud',
     supabaseUrl: 'https://kecyxblkcuautnxdeutl.supabase.co',
     // The anon (publishable) key. Safe to ship: it can only call the one guarded RPC below.
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlY3l4YmxrY3VhdXRueGRldXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4MzU3MDgsImV4cCI6MjA5ODQxMTcwOH0.y3_83affF2m5y9nFDVaontMb9f3ZtEgAm1k9Tzvig2I'

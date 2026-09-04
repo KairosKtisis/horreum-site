@@ -5,11 +5,10 @@ from shell import page, SITE, APP
 import pages_a, pages_b
 
 OUT = os.path.join(os.path.dirname(__file__), '..')
-PRICE = 500
 
 org_ld = json.dumps({
   "@context": "https://schema.org", "@type": "Organization", "name": "Horreum", "legalName": "HORREUM LLC",
-  "url": SITE, "logo": SITE + "/assets/img/icon-512.png", "email": "hello@horreum.cloud",
+  "url": SITE, "logo": SITE + "/assets/img/icon-512.png", "email": "gabriel@horreum.cloud",
   "address": {"@type": "PostalAddress", "addressLocality": "Grand Rapids", "addressRegion": "MI", "addressCountry": "US"},
   "sameAs": []
 })
@@ -22,10 +21,9 @@ app_ld = json.dumps({
 })
 faq_ld = json.dumps({
   "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-    {"@type": "Question", "name": "Why isn't the price on the page?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the size of the program — how many lockers, at how many locations. Ask and you will have a number the same day."}},
-    {"@type": "Question", "name": "Is there a contract?", "acceptedAnswer": {"@type": "Answer", "text": "Service is billed monthly per active location. The notice period and any term are set in your order form, and there is no fee to leave; your records are exported on request."}},
-    {"@type": "Question", "name": "What counts as a location?", "acceptedAnswer": {"@type": "Answer", "text": "One address where members' bottles are kept. A restaurant with a bar cooler, a walk-in and a cellar is one location with three storage spots."}},
-    {"@type": "Question", "name": "Do members pay anything?", "acceptedAnswer": {"@type": "Answer", "text": "Not to Horreum. The member app is included in the venue's subscription."}}
+    {"@type": "Question", "name": "Why isn't the price on the page?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the size of the program — how many lockers, at how many locations. Ask and you will have a number the same day. There are no per-seat fees, no per-member fees and no hardware to buy."}},
+    {"@type": "Question", "name": "What does getting started involve?", "acceptedAnswer": {"@type": "Answer", "text": "Horreum imports your member and locker records, ships your first label batches registered to your venue, and walks the first stocking with you. Your team then tags and scans the bottles into their lockers: scan the tag, then pick the wine from the catalog or enter it if it is new."}},
+    {"@type": "Question", "name": "Do members pay anything?", "acceptedAnswer": {"@type": "Answer", "text": "Not to Horreum. The member app is included for the venue's members."}}
   ]
 })
 
@@ -33,7 +31,7 @@ PAGES = [
   ("index",    "Horreum — Wine reserve & locker management for venues", "Horreum runs a venue’s wine locker program end to end — the ledger, the labels, the pulls — and gives every member a collection worth showing off.", pages_a.HOME, "website", org_ld + '</script><script type="application/ld+json">' + app_ld, False),
   ("venues",   "Horreum for venues — the locker program you’d be proud to explain", "One record for every member, locker and bottle; QR labels that last; find-my-bottle at the table; roles, approvals and an append-only activity log.", pages_a.VENUES, "website", None, False),
   ("members",  "Horreum for members — your cellar, in your pocket", "Every bottle with its story, an atlas of where they came from, your history and ratings, and one tap to have a bottle brought to your table.", pages_a.MEMBERS, "website", None, False),
-  ("pricing",  "Horreum pricing — one subscription per location, everything included", "One monthly subscription per location covers unlimited members, lockers, staff accounts, labels, the member app and Horreum’s tasting notes. Ask for a number and have it the same day.", pages_a.PRICING, "website", faq_ld, False),
+  ("pricing",  "Horreum pricing — priced according to your needs", "No per-seat fees, no per-member fees, no hardware to buy. Unlimited members, lockers and staff accounts, labels shipped to your venue, the member app and Horreum’s tasting notes. Ask for a number and have it the same day.", pages_a.PRICING, "website", faq_ld, False),
   ("about",    "About Horreum — built on the floor", "Horreum was built by a floor manager at a fine-dining chophouse who saw what conflicting locker records cost. HORREUM LLC, Grand Rapids, Michigan.", pages_b.ABOUT, "website", None, False),
   ("contact",  "Contact Horreum — request a demo", "A thirty-minute walkthrough with the person who built it. Bring your binder.", pages_b.CONTACT, "website", None, False),
   ("support",  "Horreum support — help for members and venue staff", "Signing in, installing the app, labels, pulls, storage spots, and how to reach us.", pages_b.SUPPORT, "website", None, False),
