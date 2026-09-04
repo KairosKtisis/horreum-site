@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security at Horreum</title>
+<meta name="description" content="Where data lives, how venues are isolated, how permissions are enforced, and how payments and sign-in are handled.">
+<link rel="canonical" href="https://horreum.cloud/security">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Horreum">
+<meta property="og:title" content="Security at Horreum">
+<meta property="og:description" content="Where data lives, how venues are isolated, how permissions are enforced, and how payments and sign-in are handled.">
+<meta property="og:url" content="https://horreum.cloud/security">
+<meta property="og:image" content="https://horreum.cloud/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Security at Horreum">
+<meta name="twitter:description" content="Where data lives, how venues are isolated, how permissions are enforced, and how payments and sign-in are handled.">
+<meta name="twitter:image" content="https://horreum.cloud/assets/img/og.png">
+<meta name="theme-color" content="#F2EBDC">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/playfair-display-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/cormorant-garamond-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/josefin-sans-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/glyph-dark.svg" alt="" width="30" height="30"><span>Horreum</span></a>
+    <nav class="nav" aria-label="Primary"><a href="/venues">Venues</a><a href="/members">Members</a><a href="/pricing">Pricing</a><a href="/about">About</a><a href="/support">Support</a></nav>
+    <div class="header-cta">
+      <a class="btn btn--ghost" href="https://app.horreum.cloud">Sign in</a>
+      <a class="btn btn--gold" href="/contact?kind=demo">Request a demo</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+
+<section class="sec">
+  <div class="wrap--narrow prose">
+    <p class="eyebrow">Security</p>
+    <h1 style="font-size:clamp(36px,5vw,54px)">Careful with other people’s wine.</h1>
+    <p class="lead">Horreum holds records that venues make promises on. This page says plainly how those records are kept.</p>
+
+    <h2>Where data lives</h2>
+    <p>Horreum runs on Supabase, a managed Postgres platform hosted on Amazon Web Services. Data is encrypted in transit with TLS and encrypted at rest by the hosting provider. Automated daily backups are kept by the hosting provider.</p>
+
+    <h2>Tenant isolation</h2>
+    <p>Every row in the database belongs to a venue, and Postgres row-level security decides who can read or write it. A member sees their own locker; staff see the locations they are assigned to; a venue never sees another venue. These rules are enforced by the database on every query — not by the app, and not by a screen that could be bypassed.</p>
+
+    <h2>Permissions, enforced in the database</h2>
+    <p>Actions that change records — adding a bottle, logging a pull, approving one, printing labels, reclaiming tags, editing the catalog — run as guarded database functions that check the caller’s role and permissions before doing anything. Hiding a button is a courtesy; the database is the control.</p>
+
+    <h2>Sign-in</h2>
+    <p>Accounts are set up and recovered with one-time codes sent to the account’s email, and protected with a password the account holder chooses. Passwords are stored only as salted hashes by the authentication provider. Changing a password requires a fresh code, even from a signed-in device.</p>
+
+    <h2>Payments</h2>
+    <p>If a venue turns on in-app payments, cards are collected and charged by Stripe under the venue’s own Stripe account. Card numbers never touch Horreum’s servers; Horreum records the amount, the last four digits and a reference for the receipt.</p>
+
+    <h2>The record itself</h2>
+    <p>The activity log is append-only. Adds, pulls, requests and changes are recorded with the actor and the moment, and are never edited afterward. Labels carry a check digit so a mistyped code cannot be saved against the wrong bottle, and every label is registered before it can be used.</p>
+
+    <h2>Access and operations</h2>
+    <p>Production access is limited to the platform operator, uses individual credentials, and is used for support and maintenance only. Edge functions that need elevated access run server-side with keys that are never shipped to a device.</p>
+
+    <h2>Your data, your call</h2>
+    <p>A venue can request a complete export of its records at any time and receives one on leaving the platform. Members can ask their venue, or us, to correct or delete their personal information — see the <a href="/privacy">privacy policy</a>.</p>
+
+    <h2>Reporting a concern</h2>
+    <p>If you believe you have found a security issue, write to <a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a> with the subject line <i>Security</i>. We read those first, and we will not pursue anyone who reports a problem in good faith.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/glyph-cream.svg" alt="" width="30" height="30"><span>Horreum</span></a>
+        <p class="small" style="color:var(--night-dim);max-width:320px">The storehouse for your members’ wine. Reserve and locker management for restaurants, clubs and wine bars.</p>
+        <p class="small" style="color:var(--night-mute)">HORREUM LLC · Grand Rapids, Michigan</p>
+      </div>
+      <div><h4>Product</h4><a href="/venues">For venues</a><a href="/members">For members</a><a href="/pricing">Pricing</a><a href="/security">Security</a><a href="https://app.horreum.cloud">Sign in</a></div>
+      <div><h4>Company</h4><a href="/about">About</a><a href="/contact">Contact</a><a href="/contact?kind=demo">Request a demo</a></div>
+      <div><h4>Support</h4><a href="/support">Help &amp; FAQ</a><a href="mailto:support@horreum.cloud" data-hz="support">support@horreum.cloud</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms of service</a></div>
+    </div>
+    <div class="fine"><span>© <span data-hz="year">2026</span> HORREUM LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/security">Security</a></span></div>
+  </div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
