@@ -38,6 +38,7 @@ PAGES = [
   ("security", "Security at Horreum", "Where data lives, how venues are isolated, how permissions are enforced, and how payments and sign-in are handled.", pages_b.SECURITY, "website", None, False),
   ("privacy",  "Horreum privacy policy", "What Horreum collects to keep records of members’ wine, what it does with it, and what you can ask of us.", pages_b.PRIVACY, "website", None, False),
   ("terms",    "Horreum terms of service", "The terms that govern venues’ subscriptions and members’ use of Horreum.", pages_b.TERMS, "website", None, False),
+  ("delete-account", pages_b.DELETE_META[0], pages_b.DELETE_META[1], pages_b.DELETE, "website", None, False),
   ("404",      "Not found — Horreum", "That page is not in the storehouse.", pages_b.NOTFOUND, "website", None, True),
 ]
 
@@ -59,7 +60,7 @@ open(os.path.join(OUT, 'CNAME'), 'w').write('horreum.cloud\n')
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
 open(os.path.join(OUT, 'site.webmanifest'), 'w').write(json.dumps({
   "name": "Horreum", "short_name": "Horreum", "start_url": "/", "display": "browser",
-  "background_color": "#F2EBDC", "theme_color": "#F2EBDC",
+  "background_color": "#06070A", "theme_color": "#06070A",
   "icons": [{"src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]
 }, indent=2))
 print('sitemap, robots, CNAME, manifest written')

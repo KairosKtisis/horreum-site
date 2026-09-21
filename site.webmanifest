@@ -3,8 +3,8 @@
   "short_name": "Horreum",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#F2EBDC",
-  "theme_color": "#F2EBDC",
+  "background_color": "#06070A",
+  "theme_color": "#06070A",
   "icons": [
     {
       "src": "/assets/img/icon-192.png",

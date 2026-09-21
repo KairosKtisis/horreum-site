@@ -2,7 +2,7 @@
 from icons import ICON
 from shell import APP, VINE
 
-EFFECTIVE = "September 4, 2026"
+EFFECTIVE = "September 21, 2026"
 
 def card(icon, title, text):
     return f'<div class="card"><span class="ico">{ICON[icon]}</span><h3>{title}</h3><p>{text}</p></div>'
@@ -96,9 +96,9 @@ SUPPORT = f'''
     <div class="faq">
       <details><summary>How do I sign in for the first time?</summary><div class="a"><p>Open the app, tap <b>Set up your account</b>, and enter the email address your venue has on file. We email you a six-digit code; enter it, choose a password, and you are in. Nothing in the invitation email can expire — the code is sent fresh when you ask for it.</p></div></details>
       <details><summary>I forgot my password.</summary><div class="a"><p>Tap <b>Forgot password</b> on the sign-in screen. We send a code to your email; enter it and choose a new password. To change your password while signed in, open your profile, tap <b>Change password</b>, and confirm with a code the same way.</p></div></details>
-      <details><summary>How do I install it on my phone?</summary><div class="a"><p>On iPhone, open the app in Safari, tap <b>Share</b>, then <b>Add to Home Screen</b>. On Android, tap <b>Install app</b> when prompted, or choose it from the browser menu. The app then opens from your home screen like any other and remembers you.</p></div></details>
+      <details><summary>How do I get it on my phone?</summary><div class="a"><p>Horreum is an app for iPhone and Android. It also runs in the browser at app.horreum.cloud: on iPhone, open it in Safari, tap <b>Share</b>, then <b>Add to Home Screen</b>. On Android, tap <b>Install app</b> when prompted, or choose it from the browser menu. The app then opens from your home screen like any other and remembers you.</p></div></details>
       <details><summary>How do I have a bottle brought to my table?</summary><div class="a"><p>Open your collection, tap the bottle, and show the code to your server. They scan it and are walked straight to your bottle. If you have several of the same wine, any of them satisfies it.</p></div></details>
-      <details><summary>Where do tasting notes and drink windows come from?</summary><div class="a"><p>Horreum writes the tasting note for every wine on the platform. Drink windows and serving guidance are worked out for the bottle from its type, style and vintage.</p></div></details>
+      <details><summary>Where do the tasting notes come from?</summary><div class="a"><p>Horreum writes the tasting note for every wine on the platform — the palate first, and the story of the people and the place behind it — so the notes read in one voice wherever you keep your wine.</p></div></details>
       <details><summary>The venue has my name wrong.</summary><div class="a"><p>Open your profile and change the name you go by; that is the name your app shows. Your venue keeps its own record for its ledger.</p></div></details>
       <details><summary>Can I request a bottle?</summary><div class="a"><p>Yes — from the venue’s list in Browse, tap <b>Request</b>. The team confirms it and settles it the usual way, or in the app if your venue has turned on payments.</p></div></details>
     </div>
@@ -180,9 +180,10 @@ PRIVACY = f'''
 <section class="sec">
   <div class="wrap--narrow prose">
     <p class="eyebrow">Legal</p>
-    <h1 style="font-size:clamp(36px,5vw,54px)">Privacy policy</h1>
+    <h1>Privacy policy</h1>
     <p class="meta">Effective {EFFECTIVE} · HORREUM LLC</p>
-    <p class="lead">Horreum keeps records of wine kept for members by venues. This policy explains what we collect to do that, what we do with it, and what you can ask of us. It is written to be read.</p>
+    <p class="lead">Horreum keeps records of wine kept for members by venues. This policy explains what we keep to do that, why, who can see it, and how to remove it. It is written to be read, and it is the same policy the app shows.</p>
+    <p><b>In short:</b> Horreum keeps only what it takes to run your locker and to learn how the app itself is used. Nothing is sold, no advertising network touches it, and the app does not track you across other apps or websites. You can delete your account from inside the app.</p>
 
     <h2>Who we are</h2>
     <p>Horreum is operated by HORREUM LLC, a Michigan limited liability company (“Horreum”, “we”). The service consists of this website (horreum.cloud) and the Horreum application (app.horreum.cloud), which venues use to manage members’ wine and members use to see it.</p>
@@ -190,51 +191,58 @@ PRIVACY = f'''
     <h2>Two roles</h2>
     <p>For a <b>venue</b> (a restaurant, club or bar that subscribes to Horreum), Horreum processes the venue’s records on the venue’s behalf. For a <b>member</b> (a person whose wine a venue keeps), the venue is the party that decides to keep records about you and what those records say; Horreum stores and displays them for the venue and for you. Questions about why a venue holds particular information about you are best put to the venue; we will help with anything about how it is stored and shown.</p>
 
-    <h2>What we collect</h2>
+    <h2>What the app keeps</h2>
     <ul>
-      <li><b>Account information.</b> Your email address, the name you use, and, if a venue provides it, a phone number. Passwords are stored only as salted hashes by our authentication provider.</li>
-      <li><b>Locker records.</b> The bottles kept for you — wine, vintage, how and when each arrived, where it is stored, when it was pulled and by whom — and any requests you make. Venues may attach a photo when logging a pull.</li>
-      <li><b>Things you write.</b> Ratings and reviews, notes on your own bottles, and messages to the venue’s team.</li>
-      <li><b>Preferences.</b> Your theme and locker finish, stored with your account so they follow you between devices.</li>
-      <li><b>Technical information.</b> Standard server logs (IP address, browser, time) kept by our hosting provider for security and reliability, and, when you send a form on this website, the page you sent it from and your browser’s user-agent string.</li>
+      <li><b>Your account.</b> Your name, email address and phone number, as your venue entered them when it set up your locker and as you edit them in Profile settings; a sign-in password you choose; the one-time codes emailed to you to confirm it's you.</li>
+      <li><b>Your locker.</b> The bottles stocked for you and the ones you brought in, when they arrived, when a bottle was pulled and how (at the table or off site), the requests you send the team, and your ratings and notes.</li>
+      <li><b>Messages.</b> Conversations between you and the venue's team inside the app.</li>
+      <li><b>Keepsake photos.</b> When a bottle comes to your table, the venue's team may offer to take a photo of you with it. Only if you say yes: the photo is taken inside the app with the device's camera (it cannot be saved to the staff member's phone or gallery), held in private storage, checked by a manager, and then shown to you — and only you — on your History page. You can delete it there at any time, and deletion is permanent.</li>
+      <li><b>Preferences.</b> Your theme and locker finish, saved to your account so they follow you between devices.</li>
+      <li><b>Payments, only where your venue has turned them on.</b> If your venue accepts cards through the app, your card details go directly to Stripe, our payment processor; Horreum never sees the number and keeps only the card's brand, its last four digits and a payment reference for your receipts.</li>
+      <li><b>Bug reports.</b> If you report a problem, we keep what you wrote, which screen you were on and the app version, so it can be reproduced.</li>
+      <li><b>How the app is used.</b> Which screens and features are opened and how often — for example whether a request began on the atlas or the list, or whether a bottle was rated — together with the app version and the kind of device. It is kept in Horreum's own database, tied to your account only so it can be removed with it, never sold or shared, and never includes what you wrote in a note, a journal entry or a message. We use it to decide what to build and fix.</li>
+      <li><b>Technical records.</b> To keep the app reliable we record when a loading screen misbehaves (which page, which version, your device's browser string) and standard server logs.</li>
+    </ul>
+    <p><b>Location.</b> The app never asks for, reads or stores your location. Its day and night looks follow the clock: sunrise and sunset are estimated from your device's time zone, nothing more precise than that.</p>
+    <p><b>Camera.</b> The camera is used by venue staff, in the staff app, for two things: reading bottle labels and tags, where the code is read from the frame on the device and no image is kept; and keepsake photos, described above, which are only ever taken with your agreement.</p>
+
+<h2>Why</h2>
+    <p>To run your locker and show it to you; to let the venue stock it, pull bottles for you and answer your requests; to send you the emails you've asked for (codes, invitations and, if you've left them on, notices about your bottles); to issue receipts where the venue takes payment in the app; to find and fix faults; and to see which parts of the app are used, so we know what to improve. That is the whole list. Horreum does not use your information for advertising, does not sell or rent it, and does not build profiles of you for anyone else.</p>
+
+<h2>Who can see it</h2>
+    <ul>
+      <li><b>Your venue.</b> The team at the venue that holds your locker sees your locker, your requests and your messages — they need them to serve you. Staff with no permission to read messages cannot.</li>
+      <li><b>Service providers working for Horreum.</b> Supabase hosts the database, file storage and sign-in; Stripe handles payments for venues that use them; an email service delivers codes and notices. Each processes data only to provide its service to us.</li>
+      <li><b>Ordinary web requests.</b> A few things load straight from other services as any web page would, and those services see your device's network address in the process, nothing else: fonts a venue has chosen for its branding (Google Fonts), the label-reading library used in the staff app (jsDelivr), and the weather shown over a wine region in the atlas (Open-Meteo, which is sent the region's coordinates, never yours).</li>
+      <li><b>When the law requires it</b>, or to protect the safety of members, venues or the service.</li>
+    </ul>
+    <p>Nobody else. Your information is not shared with other venues on the platform.</p>
+
+<h2>Your choices</h2>
+    <ul>
+      <li><b>Edit</b> your name, email, phone and notification preferences any time in Profile settings.</li>
+      <li><b>Delete your account</b> from Profile settings → Close account, or follow the steps at <a href="/delete-account">horreum.cloud/delete-account</a>. Your sign-in, personal details, preferences, messages and keepsake photos are removed. Records of past purchases and pulls remain with the venue as its own business records, as the law requires of it; they are no longer tied to a live account.</li>
+      <li><b>Remove a keepsake photo</b> from its entry on your History page whenever you like.</li>
+      <li><b>Ask us</b> for a copy of what we hold, or to correct or erase it, at <a href="mailto:gabriel@horreum.cloud">gabriel@horreum.cloud</a>.</li>
     </ul>
 
-    <h2>What the app asks your device for</h2>
-    <ul>
-      <li><b>Camera</b> — only when staff scan a bottle’s QR tag or a member’s code. Images are processed on the device to read the code and are not stored.</li>
-      <li><b>Location</b> — only if you choose the automatic day-and-night theme, which needs sunrise and sunset times for where you are. Your coordinates are stored on your device and are not sent to Horreum.</li>
-      <li><b>Local storage</b> — to keep you signed in and remember your theme. This website itself sets no cookies and uses no analytics or advertising trackers.</li>
-    </ul>
+<h2>How long it's kept</h2>
+    <p>For as long as your account is open. After you delete it, personal details are removed promptly; server logs and diagnostic records age out on their own within a year; the venue keeps its purchase records for as long as its books require.</p>
 
-    <h2>How we use it</h2>
-    <p>To run the service: showing venues and members the same records, sending the one-time codes that sign you in, notifying you when a bottle is added or pulled, and answering support requests. We do not sell personal information, and we do not use it for advertising.</p>
+<h2>Security</h2>
+    <p>Everything travels encrypted between your device and our servers. Access to the database is controlled row by row, so a member can only ever read their own locker and a venue can only ever read its own members. Photos and attachments live in private storage that is reachable only through short-lived signed links issued to people the rules above allow. Passwords are stored hashed; card numbers are never stored by Horreum at all.</p>
 
-    <h2>Who else sees it</h2>
-    <ul>
-      <li><b>Your venue</b> and its staff, according to the permissions the venue sets.</li>
-      <li><b>Supabase</b>, which hosts the database and authentication on Amazon Web Services in the United States.</li>
-      <li><b>Stripe</b>, if your venue turns on in-app payments: Stripe collects and charges your card under the venue’s account, and we receive the amount, the last four digits and a reference.</li>
-      <li><b>Google Fonts</b>, from which the application loads its typefaces; Google receives your IP address when the fonts load. This website hosts its own fonts and makes no such request.</li>
-      <li><b>Open-Meteo</b>, which provides the weather shown in the Atlas for wine regions. Requests carry the coordinates of a wine region, never yours.</li>
-      <li>Authorities, if the law requires it, and successors, if Horreum is ever sold — under this same policy.</li>
-    </ul>
+    <h2>This website</h2>
+    <p>horreum.cloud sets no cookies and runs no analytics or advertising trackers, and it hosts its own fonts. If you send a form here — a demo request, a pricing question, a support message — we keep what you typed, the page you sent it from and your browser’s user-agent string, so that a person can answer you. Our hosting provider keeps standard server logs (IP address, browser, time) for security and reliability.</p>
 
-    <h2>How long we keep it</h2>
-    <p>For as long as your venue’s program keeps records about you, and as the venue’s ledger requires afterward; a locker program’s history is part of its record. When a venue leaves Horreum, its data is exported to the venue and deleted from the platform within ninety days. Server logs are kept for a limited period by our hosting provider.</p>
-
-    <h2>Your choices</h2>
-    <ul>
-      <li>See and correct your account details in the app’s profile.</li>
-      <li>Ask us, or your venue, to correct or delete personal information. Some records — a bottle that was pulled on a given night — may be kept as part of the venue’s ledger with your name removed.</li>
-      <li>Choose the fixed theme instead of the automatic one, and location is never requested.</li>
-    </ul>
+    <h2>Where you live</h2>
     <p>Residents of states with privacy laws that grant specific rights (including California) may exercise them by writing to us; we do not sell or share personal information for advertising, so there is nothing to opt out of on that front.</p>
 
     <h2>Age</h2>
-    <p>Horreum is about wine and is offered to venues that serve adults. It is not directed to anyone under the legal drinking age, and we do not knowingly collect information from anyone under 18.</p>
+    <p>Horreum is built around wine. It is not directed to anyone under the legal drinking age where they live, venues may only open lockers for adults, and we do not knowingly keep information about anyone younger. If you believe we have, write to us and it will be removed.</p>
 
     <h2>Changes</h2>
-    <p>If this policy changes in a way that matters, we will say so in the app and update the date above. Continuing to use Horreum after a change means the new policy applies.</p>
+    <p>If this policy changes in a way that matters, the app will say so the next time you open it, and the date at the top will move.</p>
 
     <h2>Contact</h2>
     <p>HORREUM LLC, Grand Rapids, Michigan · <a href="mailto:gabriel@horreum.cloud" data-hz="support">gabriel@horreum.cloud</a></p>
@@ -279,7 +287,7 @@ TERMS = f'''
     <p>We aim to keep the Service available at all times and to tell you in advance of planned maintenance. Support is provided by email and from within the app. The Service may change as it improves; we will not remove a capability a Venue relies on without notice.</p>
 
     <h2>8. Disclaimers</h2>
-    <p>The Service is provided as it is and as available. We do not promise that it will be uninterrupted or free of error. Drink windows, serving guidance and tasting notes are editorial guidance, not a warranty about any bottle. Horreum is not responsible for the condition, storage, loss or service of any bottle, which is between the Venue and the Member.</p>
+    <p>The Service is provided as it is and as available. We do not promise that it will be uninterrupted or free of error. Tasting notes and the stories behind the wines are editorial guidance, not a warranty about any bottle. Horreum is not responsible for the condition, storage, loss or service of any bottle, which is between the Venue and the Member.</p>
 
     <h2>9. Limitation of liability</h2>
     <p>To the extent the law allows, Horreum is not liable for indirect, incidental, special or consequential losses, or for loss of profit, data or goodwill, arising from the Service. Horreum’s total liability for any claim in connection with the Service is limited to the fees the Venue paid to Horreum in the twelve months before the claim, or one hundred dollars for a Member.</p>
@@ -314,3 +322,46 @@ NOTFOUND = f'''
   </div>
 </section>
 '''
+
+# ── DELETE ACCOUNT (the URL both stores ask for) ────────────────────────────
+DELETE = '''
+
+<section class="sec">
+  <div class="wrap--narrow">
+    <p class="eyebrow">Your account</p>
+    <h1 style="font-size:clamp(44px,6vw,80px)">Delete <em>your account.</em></h1>
+    <p class="lead">Two ways to close your <b>Horreum</b> account and remove the information attached to it. Either one works, and neither needs you to speak to your venue first.</p>
+    <div class="cta-row"><a class="btn btn--gold" href="https://app.horreum.cloud">Open the app</a><a class="btn btn--ghost" href="mailto:gabriel@horreum.cloud?subject=Delete%20my%20account" data-hz="support">gabriel@horreum.cloud</a></div>
+  </div>
+</section>
+
+<section class="sec sec--paper">
+  <div class="wrap--narrow">
+    <h2>How to do it</h2>
+    <div class="faq">
+      <details open><summary>In the app</summary><div class="a"><p>Open Horreum, go to <b>Profile settings</b>, and choose <b>Close account</b>. You will be asked to type DELETE, enter your password and confirm a one-time code we email you; then your account closes straight away.</p></div></details>
+      <details><summary>By email</summary><div class="a"><p>Write to <a href="mailto:gabriel@horreum.cloud?subject=Delete%20my%20account" data-hz="support">gabriel@horreum.cloud</a> from the address on your account and ask us to close it. We answer within a few days and confirm when it is done.</p></div></details>
+      <details><summary>Removing something without closing your account</summary><div class="a"><p>You can ask us to erase particular information and keep your account open &mdash; a journal entry, a photo, a message thread. Write to the same address and say what you would like removed.</p></div></details>
+    </div>
+
+    <h2 style="margin-top:56px">What is deleted</h2>
+    <ul>
+      <li>Your sign-in and the credentials behind it.</li>
+      <li>Your name, email, phone and notification preferences.</li>
+      <li>Your journal entries, ratings and request notes.</li>
+      <li>Photos you added to a pull.</li>
+      <li>Your messages with the venue.</li>
+    </ul>
+
+    <h2 style="margin-top:56px">What your venue keeps, and why</h2>
+    <p>Records of past purchases and pulls stay with your venue as its own business records, because the law requires a business to keep them. They are no longer tied to a live account and no longer identify you within Horreum.</p>
+
+    <h2 style="margin-top:56px">How long it takes</h2>
+    <p>Personal details are removed promptly &mdash; immediately when you close the account in the app, and within thirty days of an emailed request. Server logs and diagnostic records age out on their own within a year. Your venue keeps its purchase records for as long as its books require.</p>
+
+    <p style="margin-top:32px">The full picture of what Horreum holds and why is in the <a href="/privacy">privacy policy</a>.</p>
+  </div>
+</section>
+
+'''
+DELETE_META = ('Delete your Horreum account', 'How to delete your Horreum account and the data attached to it, what is removed, what your venue keeps, and how long it takes.')

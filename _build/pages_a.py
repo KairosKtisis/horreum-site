@@ -1,164 +1,7 @@
-# Home, Venues, Members, Pricing
+# Venues, Members, Pricing (Home lives in home.py)
 from icons import ICON
-from shell import APP, VINE
-
-def card(icon, title, text):
-    return f'<div class="card"><span class="ico">{ICON[icon]}</span><h3>{title}</h3><p>{text}</p></div>'
-
-def phone(src, alt, small=False):
-    return f'<div class="phone{" phone--sm" if small else ""}"><div class="phone-body"><img src="{src}" alt="{alt}" loading="lazy" width="390" height="844"></div></div>'
-
-# ── HOME ────────────────────────────────────────────────────────────────────
-HOME = f'''
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow">Wine reserve &amp; locker management</p>
-      <h1>Every bottle, accounted for.</h1>
-      <p class="lead">Horreum runs a venue’s wine locker program end to end — the ledger, the labels, the pulls — and gives every member a collection worth showing off. Built on the floor of a fine-dining chophouse, where it runs today.</p>
-      <div class="cta-row">
-        <a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo</a>
-        <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
-      </div>
-      <p class="hero-note">No hardware to buy · Runs on the phones your staff already carry · Members set up in a minute</p>
-    </div>
-    {phone("/assets/shots/collection.jpg", "A member’s collection in the Horreum app: bottles with tasting notes, drink windows and serving guidance")}
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="wrap--narrow center" style="margin-bottom:44px">
-      <p class="eyebrow">The problem</p>
-      <h2>A locker program runs on trust. Trust runs on records.</h2>
-      <p class="lead">Members leave bottles worth real money in your care. The program only works while everyone’s records agree — and a spreadsheet, a binder and someone’s memory rarely do.</p>
-    </div>
-    <div class="grid grid--3">
-      {card("ledger", "Conflicting records", "Two lists, one bottle, and a member who remembers it differently. Every disagreement is a conversation you would rather not have.")}
-      {card("log", "No chain of custody", "Who stocked it, who pulled it, when, and for whom. Without an append-only log, nobody can answer with certainty — and certainty is the product.")}
-      {card("find", "The search during service", "A guest asks for their bottle at 7:45 on a Saturday. The server goes looking. The table waits, and the wrong bottle is one guess away.")}
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--paper" id="how">
-  <div class="wrap">
-    <div class="wrap--narrow center" style="margin-bottom:44px">
-      <p class="eyebrow">How it works</p>
-      <h2>Label. Stock. Serve.</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="num">I</div><h3>Label</h3><p>Your QR labels come from Horreum, minted in batches and registered before they ship, so a label cannot be forged, duplicated or lost to a misprint. Nothing to print. A tag comes back into circulation when its bottle leaves.</p></div>
-      <div class="step"><div class="num">II</div><h3>Stock</h3><p>Adding a bottle starts by scanning the QR tag that goes on it. Then the wine: pick it from your catalog, or enter its basics — producer, vintage, type — if it is not in the system yet. Then the locker, and where the bottle physically sits. The member’s collection updates that moment, and the activity log records who did it and when.</p></div>
-      <div class="step"><div class="num">III</div><h3>Serve</h3><p>At the table, the member shows a code from their collection. The server scans it, is walked to the exact bottle and its storage spot, confirms it by scanning the bottle’s tag, and logs the pull. The member gets a note — and a chance to rate the bottle.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="wrap--narrow center" style="margin-bottom:44px">
-      <p class="eyebrow">For venues</p>
-      <h2>The program you would be proud to explain.</h2>
-      <p class="lead">Everything the floor, the bar and the office need, in one record that never disagrees with itself.</p>
-    </div>
-    <div class="grid grid--4">
-      {card("ledger", "The ledger", "Every member, every locker, every bottle — house-purchased or brought in — with its vintage, where it sits, and its full history.")}
-      {card("label", "Labels that last", "Durable QR labels, minted in batches and registered before they ship to you. Void a batch that goes missing; reclaim a tag when its bottle leaves.")}
-      {card("spot", "Storage spots", "A locker is where a bottle belongs; the bar cooler is where it might sit tonight. Name your spots per location and every bottle knows both.")}
-      {card("find", "Find my bottle", "The member shows a code; the server is walked to the exact bottle. A wrong bottle is refused before it ever leaves the cooler.")}
-      {card("roles", "Roles and approvals", "Servers submit pulls; managers approve. Each account carries exactly the permissions you give it — enforced by the database, not the screen.")}
-      {card("log", "Activity, append-only", "A full chain of custody: every add, pull, request and change, with who and when. Filter by day, week, month, or your own range.")}
-      {card("notes", "Catalog and tasting notes", "Your list, per location, with prices and vintages. Horreum writes the tasting note for every wine — long-form, guest-ready, one voice.")}
-      {card("brand", "Your brand, your locations", "White-label from the first screen: your logo, your themes, your locker finishes. Add locations as you grow; each keeps its own catalog, staff and records.")}
-    </div>
-    <div class="center" style="margin-top:36px"><a class="btn btn--ghost" href="/venues">Everything for venues</a></div>
-  </div>
-</section>
-
-<section class="sec sec--night">
-  <div class="wrap">
-    <div class="split">
-      <div>
-        <p class="eyebrow">For members</p>
-        <h2>A collection worth showing off.</h2>
-        <p class="lead">Members don’t get a spreadsheet. They get their cellar — with the story of every bottle in it.</p>
-        <ul>
-          <li><b>The Collection.</b> Every bottle with its tasting note, drink window and serving guidance, drawn as a cellar sheet they can print or share.</li>
-          <li><b>The Atlas.</b> An interactive globe of the world’s wine regions, with the member’s own bottles pinned to where they were made.</li>
-          <li><b>History and ratings.</b> What they have enjoyed, what they thought of it, and what came into the locker and how.</li>
-          <li><b>Show your server.</b> One tap on a bottle shows the code that brings it to the table.</li>
-          <li><b>Requests and messages.</b> Ask for a bottle from the list, or a word with the team, without picking up the phone.</li>
-          <li><b>An app, not a website.</b> Installs on iPhone and Android in a minute; classic by day, midnight after dark.</li>
-        </ul>
-        <div class="cta-row" style="margin-top:26px"><a class="btn btn--ghost" href="/members">Everything for members</a></div>
-      </div>
-      {phone("/assets/shots/find.jpg", "The Show-your-server sheet: a large code the member shows their server to have a bottle brought out")}
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="wrap--narrow center" style="margin-bottom:44px">
-      <p class="eyebrow">Screens</p>
-      <h2>What the member sees. What the floor sees.</h2>
-    </div>
-    <div class="phones">
-      <figure style="margin:0">{phone("/assets/shots/collection.jpg", "The Collection", True)}<figcaption>The Collection<span>The member’s cellar sheet</span></figcaption></figure>
-      <figure style="margin:0">{phone("/assets/shots/history.jpg", "History", True)}<figcaption>History<span>Enjoyed, rated, added</span></figcaption></figure>
-      <figure style="margin:0">{phone("/assets/shots/find.jpg", "Show your server", True)}<figcaption>Show your server<span>The code that fetches a bottle</span></figcaption></figure>
-      <figure style="margin:0">{phone("/assets/shots/hunt.jpg", "Find a bottle (staff)", True)}<figcaption>Find a bottle<span>What the server sees after the scan</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--paper">
-  <div class="wrap">
-    <div class="split">
-      <div>
-        <p class="eyebrow">Pricing</p>
-        <h2>Priced according to your needs.</h2>
-        <p class="lead">No per-seat fees, no per-member fees, no hardware to buy. Every locker program is a different size, so the price follows yours — tell us about it and you’ll have a number the same day.</p>
-        <div class="cta-row"><a class="btn btn--gold" href="/contact?kind=pricing">Ask about pricing</a><a class="btn btn--ghost" href="/pricing">What’s included</a></div>
-      </div>
-      <div class="grid grid--2" style="gap:18px">
-        <div class="stat"><b>0</b><span>Per-seat fees</span></div>
-        <div class="stat"><b>0</b><span>Per-member fees</span></div>
-        <div class="stat"><b>0</b><span>Hardware to buy</span></div>
-        <div class="stat"><b>1</b><span>Record of truth</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="split split--rev">
-      <div class="card" style="padding:32px">
-        <span class="ico">{ICON["shield"]}</span>
-        <h3>Built to be trusted with other people’s wine.</h3>
-        <p>Each venue’s data is isolated by row-level security in Postgres. Staff permissions are enforced by the database itself. Card payments, when a venue turns them on, are handled by Stripe and never pass through Horreum. The activity log is append-only.</p>
-        <p style="margin-top:14px"><a href="/security">How Horreum handles data →</a></p>
-      </div>
-      <div>
-        <p class="eyebrow">Trust</p>
-        <h2>Records that can be relied on.</h2>
-        <p class="lead">A locker program is a promise to members. The software that runs it should be at least as careful as the people who make that promise.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--night center">
-  <div class="wrap--narrow">
-    {VINE.replace('#7C5A36', '#E8CB84')}
-    <h2>See it on your floor.</h2>
-    <p class="lead">A thirty-minute walkthrough with the person who built it. Bring your binder.</p>
-    <div class="cta-row" style="justify-content:center;margin-top:8px"><a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo</a><a class="btn btn--ghost btn--lg" href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a></div>
-  </div>
-</section>
-'''
+from shell import APP, VINE, ARR
+from home import HOME, card, phone, shot
 
 # ── VENUES ──────────────────────────────────────────────────────────────────
 VENUES = f'''
@@ -166,11 +9,11 @@ VENUES = f'''
   <div class="wrap">
     <div>
       <p class="eyebrow">For venues</p>
-      <h1>Run the program you would be proud to explain.</h1>
+      <h1>Run the program you would be <em>proud to explain.</em></h1>
       <p class="lead">Restaurants, clubs and wine bars keep members’ bottles for the same reason: it brings them back. Horreum makes the keeping precise — and turns the program into something members talk about.</p>
       <div class="cta-row"><a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo</a><a class="btn btn--ghost btn--lg" href="/pricing">Pricing</a></div>
     </div>
-    {phone("/assets/shots/hunt.jpg", "The staff Find-a-bottle screen: the wine, whose locker, each bottle’s storage spot and tag, and a live scanner")}
+    {phone("overview", "The venue overview: inventory value, bottles and lockers in the program, open requests", eager=True)}
   </div>
 </section>
 
@@ -206,11 +49,11 @@ VENUES = f'''
   <div class="wrap">
     <div class="wrap--narrow center" style="margin-bottom:44px">
       <p class="eyebrow">Service</p>
-      <h2>Find my bottle.</h2>
+      <h2>Find <em>my bottle.</em></h2>
       <p class="lead">A member taps a bottle in their collection and shows the server a code. The server scans it — in the app, or with the phone’s own camera — and this opens.</p>
     </div>
     <div class="split">
-      {phone("/assets/shots/hunt.jpg", "The Find-a-bottle screen")}
+      {phone("hunt", "The Find-a-bottle screen: the wine, whose locker, each bottle’s storage spot and tag, and a live scanner")}
       <div>
         <ul>
           <li><b>The wine, whose locker,</b> and one row per bottle with where it sits and which tag it wears.</li>
@@ -242,7 +85,7 @@ VENUES = f'''
     <div class="split">
       <div>
         <p class="eyebrow">Getting set up</p>
-        <h2>Members are imported. Bottles are scanned in.</h2>
+        <h2>Members are imported. <em>Bottles are scanned in.</em></h2>
         <p class="lead">Your member and locker records — the spreadsheet, the binder, the PDF from the last count — are imported for you. The bottles themselves are not: every one is tagged and scanned into its locker by hand, wine by wine — the tag is scanned, then the wine is picked from your catalog or entered if it is new. That is the work, and it is the point — from that moment the record is exact, and it stays that way.</p>
         <ul>
           <li>Members and lockers imported and reconciled before you start.</li>
@@ -277,20 +120,20 @@ MEMBERS = f'''
   <div class="wrap">
     <div>
       <p class="eyebrow">For members</p>
-      <h1>Your cellar, in your pocket.</h1>
+      <h1>Your cellar, <em>in your pocket.</em></h1>
       <p class="lead">If your venue keeps your bottles, Horreum is how you see them: every bottle with its story, the map of where they came from, and one tap to have one brought to your table.</p>
       <div class="cta-row"><a class="btn btn--gold btn--lg" href="{APP}">Sign in</a><a class="btn btn--ghost btn--lg" href="/support">Help getting started</a></div>
     </div>
-    {phone("/assets/shots/collection.jpg", "The Collection: a member’s bottles with tasting notes, drink windows and serving guidance")}
+    {phone("locker", "A member’s locker in the Horreum app: their bottles standing in a wooden cabinet", eager=True)}
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
     <div class="grid grid--3">
-      {card("bottle", "The Collection", "Every bottle in your locker, drawn as a cellar sheet: the tasting note, the drink window and whether it is at its peak, and how to serve it — temperature and decanting, worked out for that bottle. Print it or share it.")}
+      {card("bottle", "The Collection", "Every bottle in your locker, drawn as a cellar sheet: Horreum’s tasting note up front, and the story of the people and the place one tap behind it. Print it or share it.")}
       {card("globe", "The Atlas", "An interactive globe of the world’s wine regions. Your own bottles are pinned to where they were made; tap a region to see what grows there and how far it is from your table.")}
-      {card("history", "History", "What you have enjoyed and when, what came into your locker and how, and any requests you have made — with the receipt on any bottle you bought in the app.")}
+      {card("history", "History", "What you have enjoyed and when, what came into your locker and how, and any requests you have made. Keep a line about the evening a bottle was opened, and a keepsake photo if your venue took one.")}
       {card("star", "Ratings", "Rate a bottle the moment you have enjoyed it — one tap on the stars, right in your history — and add a few words if you like. Your reviews live with the bottles they belong to.")}
       {card("find", "Show your server", "Tap a bottle in your collection and a code appears. Your server scans it and is walked straight to your bottle — no searching, no guessing.")}
       {card("chat", "Requests and messages", "Ask for a bottle from your venue’s list, or send the team a note. Announcements from the venue arrive in the app.")}
@@ -301,18 +144,33 @@ MEMBERS = f'''
 <section class="sec sec--night">
   <div class="wrap">
     <div class="split split--rev">
-      {phone("/assets/shots/history.jpg", "History: bottles enjoyed and rated, and bottles added to the locker")}
+      {phone("history", "History: bottles enjoyed and rated, and bottles added to the locker")}
       <div>
         <p class="eyebrow">Getting started</p>
-        <h2>Three steps, one minute.</h2>
+        <h2>Three steps, <em>one minute.</em></h2>
         <ul>
           <li><b>Your venue invites you.</b> An email arrives with a link to set up your account.</li>
           <li><b>Confirm it is you.</b> Enter your email and the six-digit code we send it; then choose a password.</li>
-          <li><b>Install it.</b> On iPhone, tap Share then <i>Add to Home Screen</i>; on Android, tap <i>Install app</i>. It opens like any other app, and it remembers you.</li>
+          <li><b>Put it on your phone.</b> Horreum is an app for iPhone and Android. It also runs in the browser: on iPhone, tap Share then <i>Add to Home Screen</i>; on Android, tap <i>Install app</i>.</li>
         </ul>
-        <p class="small" style="margin-top:18px">Two themes — classic by day, midnight after dark — or let it follow the sun where you are.</p>
+        <p class="small" style="margin-top:18px">Two themes — classic by day, midnight after dark — or let it follow the clock.</p>
         <div class="cta-row" style="margin-top:22px"><a class="btn btn--gold" href="{APP}">Open the app</a><a class="btn btn--ghost" href="/support">Support</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec day">
+  <div class="wrap">
+    <div class="wrap--narrow center" style="margin-bottom:56px">
+      <p class="eyebrow">Inside the app</p>
+      <h2>Four rooms, <em>one key.</em></h2>
+    </div>
+    <div class="phones">
+      <figure>{phone("locker", "The Locker", small=True)}<figcaption>The Locker<span>The bottles held in your name</span></figcaption></figure>
+      <figure>{phone("atlas", "The Atlas", small=True)}<figcaption>The Atlas<span>The cellar, region by region</span></figcaption></figure>
+      <figure>{phone("bottle", "A wine’s card", small=True)}<figcaption>Browse<span>Every bottle, with its story</span></figcaption></figure>
+      <figure>{phone("collection", "The Collection", small=True)}<figcaption>The Collection<span>Ready to print or share</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -320,7 +178,7 @@ MEMBERS = f'''
 <section class="sec center">
   <div class="wrap--narrow">
     <p class="eyebrow">Not a member yet?</p>
-    <h2>Ask your venue about lockers.</h2>
+    <h2>Ask your venue <em>about lockers.</em></h2>
     <p class="lead">Horreum is offered by the venues that keep members’ wine. If yours does not yet, we would be glad to talk to them.</p>
     <div class="cta-row" style="justify-content:center"><a class="btn btn--ghost" href="/contact">Introduce us</a></div>
   </div>
@@ -333,7 +191,7 @@ PRICING = f'''
   <div class="wrap">
     <div class="wrap--narrow center" style="margin-bottom:44px">
       <p class="eyebrow">Pricing</p>
-      <h1 style="font-size:clamp(36px,5vw,54px)">Priced according<br>to your needs.</h1>
+      <h1 style="font-size:clamp(44px,6.4vw,84px)">Priced according<br>to <em>your needs.</em></h1>
       <p class="lead">Every locker program is a different size, so the price follows yours. Tell us about it — how many lockers, how many locations — and you’ll have a number the same day. No per-seat fees, no per-member fees, no hardware to buy.</p>
       <div class="cta-row" style="justify-content:center"><a class="btn btn--gold btn--lg" href="/contact?kind=pricing">Ask about pricing</a><a class="btn btn--ghost btn--lg" href="/contact?kind=demo">Request a demo</a></div>
     </div>
@@ -379,7 +237,7 @@ PRICING = f'''
 <section class="sec sec--paper">
   <div class="wrap--narrow">
     <p class="eyebrow">Questions</p>
-    <h2>Pricing, plainly.</h2>
+    <h2>Pricing, <em>plainly.</em></h2>
     <div class="faq">
       <details><summary>Why isn’t the price on the page?</summary><div class="a"><p>Because it depends on the program. A single restaurant with fifty lockers and a group with four locations are different jobs, and one number would be wrong for one of them. Ask and you will have yours the same day — no sales call required unless you want one.</p></div></details>
       <details><summary>What does getting started involve?</summary><div class="a"><p>We import your member and locker records from whatever you keep them in today. Your first label batches arrive registered to your venue, and we walk the first stocking with you. Then your team tags and scans the bottles into their lockers — scan the tag, pick the wine or enter it if it is new — a couple of minutes a bottle, more when a wine needs its basics entered.</p></div></details>
