@@ -2,6 +2,7 @@
 import os, sys, json, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from shell import page, SITE, APP
+from shell import THEME_COLOR
 import pages_a, pages_b
 
 OUT = os.path.join(os.path.dirname(__file__), '..')
@@ -60,7 +61,7 @@ open(os.path.join(OUT, 'CNAME'), 'w').write('horreum.cloud\n')
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
 open(os.path.join(OUT, 'site.webmanifest'), 'w').write(json.dumps({
   "name": "Horreum", "short_name": "Horreum", "start_url": "/", "display": "browser",
-  "background_color": "#06070A", "theme_color": "#06070A",
+  "background_color": THEME_COLOR, "theme_color": THEME_COLOR,
   "icons": [{"src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]
 }, indent=2))
 print('sitemap, robots, CNAME, manifest written')

@@ -1,8 +1,7 @@
 /* Horreum — horreum.cloud · site.js (v2)
    No dependencies. The original three jobs — the mobile nav, the addresses the site quotes, and the
-   forms (which post straight to the platform's guarded RPC) — plus the site's motion: the sky, the
-   header that tightens on scroll, reveals, the pinned story, and the light that follows the pointer
-   across a card. Everything decorative stands down under prefers-reduced-motion. */
+   forms (which post straight to the platform's guarded RPC) — plus two quiet pieces of motion: a
+   gentle reveal on scroll and the pinned story. Both stand down under prefers-reduced-motion. */
 (function () {
   'use strict';
 
@@ -100,7 +99,7 @@
   /* reveal on scroll: anything marked .rv, plus the common blocks so older page bodies get it for free */
   function reveals() {
     var auto = document.querySelectorAll('.sec .card, .sec .step, .sec .stat, .sec .price-card, .sec .phone, .sec h2, .sec .lead, .faq details, .phones figure, .hero .phone');
-    for (var i = 0; i < auto.length; i++) { if (!auto[i].closest('.fan, .story-stage, .h-hero')) auto[i].classList.add('rv'); }
+    for (var i = 0; i < auto.length; i++) { if (!auto[i].closest('.trio, .story-stage, .h-hero')) auto[i].classList.add('rv'); }
     var els = document.querySelectorAll('.rv');
     if (!('IntersectionObserver' in window) || REDUCED) { for (var j = 0; j < els.length; j++) els[j].classList.add('in'); return; }
     var io = new IntersectionObserver(function (en) {
@@ -115,41 +114,7 @@
     }
   }
 
-  /* the light that follows the pointer across a card */
-  function spotlight() {
-    if (!window.matchMedia || !matchMedia('(hover: hover)').matches) return;
-    document.addEventListener('pointermove', function (e) {
-      var c = e.target && e.target.closest ? e.target.closest('.card') : null; if (!c) return;
-      var r = c.getBoundingClientRect();
-      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    }, { passive: true });
-  }
 
-  /* the sky: the app's own night — a few hundred stars, most still, some breathing. One canvas per .sky. */
-  function sky() {
-    var cs = document.querySelectorAll('canvas.sky'); if (!cs.length) return;
-    Array.prototype.forEach.call(cs, function (cv) {
-      var ctx = cv.getContext('2d'), stars = [], w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), raf = 0, visible = true, seed = 7;
-      function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-      function size() {
-        var r = cv.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        seed = 7; stars = []; var n = Math.round(Math.min(420, (w * h) / 5200));
-        for (var i = 0; i < n; i++) { var m = rnd(); stars.push({ x: rnd() * w, y: rnd() * h, r: m < .9 ? .35 + rnd() * .7 : 1 + rnd() * .9, a: .25 + rnd() * .65, tw: rnd() < .3 ? .4 + rnd() * 1.2 : 0, ph: rnd() * 6.28, gold: rnd() < .22 }); }
-        draw(0);
-      }
-      function draw(t) {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < stars.length; i++) { var s = stars[i], a = s.tw ? s.a * (.55 + .45 * Math.sin(t / 1000 * s.tw + s.ph)) : s.a;
-          ctx.globalAlpha = a; ctx.fillStyle = s.gold ? '#F1D68F' : '#EAF0FF'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill(); }
-        ctx.globalAlpha = 1;
-      }
-      function loop(t) { if (visible) draw(t); raf = requestAnimationFrame(loop); }
-      size(); var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 150); });
-      if (REDUCED) return;
-      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);
-      raf = requestAnimationFrame(loop);
-    });
-  }
 
   /* the pinned story: the phone stays, the chapters pass, the screen follows */
   function story() {
@@ -162,14 +127,6 @@
     for (var i = 0; i < ch.length; i++) io.observe(ch[i]);
   }
 
-  /* the hero's fan leans a little toward the pointer */
-  function fan() {
-    var f = document.querySelector('.fan'); if (!f || REDUCED || !window.matchMedia || !matchMedia('(hover: hover)').matches) return;
-    var mid = f.querySelector('.phone:nth-child(2) .phone-body'); if (!mid) return;
-    f.addEventListener('pointermove', function (e) { var r = f.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      mid.style.transform = 'rotateY(' + (x * 9).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg)'; mid.style.transition = 'transform .15s ease-out'; });
-    f.addEventListener('pointerleave', function () { mid.style.transition = 'transform .8s cubic-bezier(.22,1,.36,1)'; mid.style.transform = ''; });
-  }
 
   /* prefill from the URL, e.g. /contact?kind=demo&venue=… */
   function prefill() {
@@ -181,7 +138,7 @@
 
   function safe(fn) { try { fn(); } catch (e) { try { console.warn(e); } catch (e2) {} } }
   document.addEventListener('DOMContentLoaded', function () {
-    [fill, nav, forms, prefill, headerScroll, reveals, spotlight, sky, story, fan].forEach(safe);
+    [fill, nav, forms, prefill, headerScroll, reveals, story].forEach(safe);
     /* if anything above failed, nothing stays hidden */
     setTimeout(function () { var l = document.querySelectorAll('.rv:not(.in)'); for (var i = 0; i < l.length; i++) { var r = l[i].getBoundingClientRect(); if (r.top < innerHeight) l[i].classList.add('in'); } }, 1600);
   });

@@ -6,9 +6,11 @@ import datetime, html
 SITE = "https://horreum.cloud"
 APP  = "https://app.horreum.cloud"
 YEAR = datetime.date.today().year
-V    = "21"   # asset stamp: bump when site.css / site.js change, so a CDN never serves the old pair
+V    = "30"
+THEME = "dark"   # "dark" or "light" — the whole site wears one. Flip it, run build.py, done.
+THEME_COLOR = {"dark": "#0B0B0C", "light": "#F5F1E8"}[THEME]   # asset stamp: bump when site.css / site.js change, so a CDN never serves the old pair
 
-GLYPH = '<img src="/assets/img/glyph-cream.svg" alt="" width="28" height="28">'
+GLYPH = '<img class="g-dark" src="/assets/img/glyph-cream.svg" alt="" width="26" height="26"><img class="g-light" src="/assets/img/glyph-dark.svg" alt="" width="26" height="26">'
 GLYPH_CREAM = GLYPH
 VINE = ''
 ARR = '<svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 5h12M9 1l4 4-4 4"/></svg>'
@@ -26,7 +28,7 @@ def header():
       <a class="btn btn--ghost" href="{APP}">Sign in</a>
       <a class="btn btn--gold" href="/contact?kind=demo">Request a demo</a>
     </div>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16M4 15h16"/></svg></button>
   </div>
 </header>'''
 
@@ -36,8 +38,8 @@ def footer():
     <div class="cols">
       <div>
         <a class="brand" href="/">{GLYPH}<span>Horreum</span></a>
-        <p class="small" style="color:#B3A991;max-width:340px">The storehouse for your members’ wine. Reserve and locker management for restaurants, clubs and wine bars.</p>
-        <p class="small" style="color:#857C68">HORREUM LLC · Grand Rapids, Michigan</p>
+        <p class="small" style="max-width:340px">The storehouse for your members’ wine. Reserve and locker management for restaurants, clubs and wine bars.</p>
+        <p class="small muted">HORREUM LLC · Grand Rapids, Michigan</p>
       </div>
       <div><h4>Product</h4><a href="/venues">For venues</a><a href="/members">For members</a><a href="/pricing">Pricing</a><a href="/security">Security</a><a href="{APP}">Sign in</a></div>
       <div><h4>Company</h4><a href="/about">About</a><a href="/contact">Contact</a><a href="/contact?kind=demo">Request a demo</a></div>
@@ -45,7 +47,6 @@ def footer():
     </div>
     <div class="fine"><span>© <span data-hz="year">{YEAR}</span> HORREUM LLC. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/security">Security</a></span></div>
   </div>
-  <div class="wordmark" aria-hidden="true">HORREUM</div>
 </footer>
 <script src="/assets/site.js?v={V}"></script>'''
 
@@ -58,7 +59,7 @@ def page(slug, title, description, body, og_type="website", jsonld=None, noindex
         ld = '<script type="application/ld+json">' + jsonld + '</script>'
     robots = '<meta name="robots" content="noindex">' if noindex else ''
     return f'''<!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="{THEME}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -78,7 +79,7 @@ def page(slug, title, description, body, og_type="website", jsonld=None, noindex
 <meta name="twitter:title" content="{t}">
 <meta name="twitter:description" content="{d}">
 <meta name="twitter:image" content="{SITE}/assets/img/og.png">
-<meta name="theme-color" content="#06070A">
+<meta name="theme-color" content="{THEME_COLOR}">
 <meta name="color-scheme" content="dark light">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
