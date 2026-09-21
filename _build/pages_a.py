@@ -1,7 +1,7 @@
 # Venues, Members, Pricing (Home lives in home.py)
 from icons import ICON
 from shell import APP, VINE, ARR
-from home import HOME, card, phone, shot
+from home import HOME, TOUR, card, phone, shot
 
 # ── VENUES ──────────────────────────────────────────────────────────────────
 VENUES = f'''
@@ -23,7 +23,7 @@ VENUES = f'''
       <div>
         <p class="eyebrow">The ledger</p>
         <h2>One record. Everyone works from it.</h2>
-        <p>Every member has a locker; every locker has its bottles; every bottle has a tag, a home, and a history. House-purchased bottles come from your catalog. Bottles a member brings in are recorded as their own, with whatever details you have. Nothing is a duplicate of anything, and nothing lives in someone’s head.</p>
+        <p>Every member has a locker; every locker has its bottles; every bottle has a tag, a home, and a history. House-purchased bottles come from your catalog. Bottles a member brings in are recorded as their own, with whatever details you have. Nothing is recorded twice, and everyone works from the same page.</p>
         <ul>
           <li>Members and lockers per location, with contact details and a since date.</li>
           <li>Bottles grouped by wine, one line per physical bottle underneath.</li>
@@ -80,6 +80,7 @@ VENUES = f'''
   </div>
 </section>
 
+{TOUR}
 <section class="sec sec--night">
   <div class="wrap">
     <div class="split">
@@ -95,19 +96,11 @@ VENUES = f'''
           <li>What you need: the phones your team already carries. The labels come from us.</li>
         </ul>
       </div>
-      <div class="price-card price-card--night">
+      <div class="price-card">
         <p class="eyebrow">Pricing</p>
-        <h3 style="font-size:28px;margin:6px 0 4px">Priced to your program</h3>
-        <div class="per">no per-seat fees · no per-member fees · no hardware</div>
-        <ul>
-          <li>Unlimited members, lockers and bottles</li>
-          <li>Unlimited staff accounts and roles</li>
-          <li>QR labels, shipped to your venue</li>
-          <li>The member app, white-labelled</li>
-          <li>Tasting notes written by Horreum</li>
-          <li>Import of your member and locker records</li>
-        </ul>
-        <a class="btn btn--gold btn--block" href="/contact?kind=pricing">Ask about pricing</a>
+        <h3 style="font-size:28px;margin:6px 0 12px">Contact us for pricing</h3>
+        <p class="small" style="margin-bottom:26px">Tell us a little about your program and we’ll be in touch.</p>
+        <a class="btn btn--gold btn--block" href="/contact?kind=pricing">Contact us</a>
       </div>
     </div>
   </div>
@@ -187,63 +180,48 @@ MEMBERS = f'''
 
 # ── PRICING ─────────────────────────────────────────────────────────────────
 PRICING = f'''
+<section class="sec center">
+  <div class="wrap--narrow">
+    <p class="eyebrow">Pricing</p>
+    <h1 style="font-size:clamp(44px,6.4vw,84px)">Contact us for pricing.</h1>
+    <p class="lead">Tell us a little about your program — how many lockers, how many locations — and we’ll be in touch.</p>
+    <div class="cta-row" style="margin-top:34px"><a class="btn btn--gold btn--lg" href="/contact?kind=pricing">Contact us {ARR}</a><a class="btn btn--ghost btn--lg" href="/contact?kind=demo">Request a demo</a></div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
-    <div class="wrap--narrow center" style="margin-bottom:44px">
-      <p class="eyebrow">Pricing</p>
-      <h1 style="font-size:clamp(44px,6.4vw,84px)">Priced according<br>to <em>your needs.</em></h1>
-      <p class="lead">Every locker program is a different size, so the price follows yours. Tell us about it — how many lockers, how many locations — and you’ll have a number the same day. No per-seat fees, no per-member fees, no hardware to buy.</p>
-      <div class="cta-row" style="justify-content:center"><a class="btn btn--gold btn--lg" href="/contact?kind=pricing">Ask about pricing</a><a class="btn btn--ghost btn--lg" href="/contact?kind=demo">Request a demo</a></div>
-    </div>
     <div class="split" style="align-items:start">
-      <div class="price-card">
-        <p class="eyebrow">Included</p>
-        <h3 style="font-size:28px;margin:6px 0 4px">What every venue gets</h3>
-        <div class="per">one plan · no add-ons · no tiers</div>
-        <ul>
-          <li>Unlimited members, lockers and bottles</li>
-          <li>Unlimited staff accounts, with roles and approvals</li>
+      <div>
+        <p class="eyebrow">The platform</p>
+        <h2>What Horreum <em>brings to a venue.</em></h2>
+        <p class="lead">One system for the floor, the bar, the office and the member.</p>
+        <div class="cta-row" style="margin-top:26px"><a class="btn btn--ghost" href="/venues">Everything for venues {ARR}</a></div>
+      </div>
+      <div>
+        <ul style="margin-top:0">
+          <li>Member, locker and bottle records for each location</li>
+          <li>Staff accounts with roles and approvals</li>
           <li>QR labels, shipped to your venue</li>
-          <li>Storage spots, find-my-bottle, bottle-exact pulls</li>
-          <li>The member app, white-labelled with your brand</li>
+          <li>Storage spots, find-my-bottle and bottle-exact pulls</li>
+          <li>The member app for iPhone and Android, under your brand</li>
           <li>Tasting notes written by Horreum for every wine</li>
           <li>Announcements, requests and member messaging</li>
           <li>Import of your member and locker records</li>
-          <li>Support from the people who built it</li>
-        </ul>
-        <a class="btn btn--gold btn--block" href="/contact?kind=pricing">Ask about pricing</a>
-      </div>
-      <div>
-        <h3>Never charged for</h3>
-        <ul class="small" style="padding-left:20px;color:var(--text-dim)">
-          <li>Seats. Every server, bartender and manager gets an account.</li>
-          <li>Members. Invite all of them.</li>
-          <li>Hardware. It runs on the phones your team already carries; scanning uses the camera.</li>
-          <li>Updates. Every venue runs the latest Horreum.</li>
-        </ul>
-        <h3 style="margin-top:28px">More than one location?</h3>
-        <p>Each location keeps its own catalog, storage spots, staff and members under one account with shared branding. <a href="/contact?kind=pricing">Tell us about the group</a> and it is priced as a whole.</p>
-        <h3 style="margin-top:28px">What is not included</h3>
-        <ul class="small" style="padding-left:20px;color:var(--text-dim)">
-          <li>The scan-in. Your bottles are tagged and scanned into their lockers by your team, wine by wine. We walk the first batch with you and import your member and locker records; the bottles are the part only your hands can do.</li>
-          <li>Card-processing fees, if you turn on in-app payments. Payments run through your own Stripe account at Stripe’s standard rates; Horreum adds nothing on top.</li>
-          <li>Custom development. If your program needs something Horreum does not do, ask — the roadmap is written by venues.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec sec--paper">
+<section class="sec">
   <div class="wrap--narrow">
     <p class="eyebrow">Questions</p>
-    <h2>Pricing, <em>plainly.</em></h2>
+    <h2>Getting started.</h2>
     <div class="faq">
-      <details><summary>Why isn’t the price on the page?</summary><div class="a"><p>Because it depends on the program. A single restaurant with fifty lockers and a group with four locations are different jobs, and one number would be wrong for one of them. Ask and you will have yours the same day — no sales call required unless you want one.</p></div></details>
-      <details><summary>What does getting started involve?</summary><div class="a"><p>We import your member and locker records from whatever you keep them in today. Your first label batches arrive registered to your venue, and we walk the first stocking with you. Then your team tags and scans the bottles into their lockers — scan the tag, pick the wine or enter it if it is new — a couple of minutes a bottle, more when a wine needs its basics entered.</p></div></details>
-      <details><summary>Do members pay anything?</summary><div class="a"><p>Not to Horreum. The member app is included in your subscription. What you charge members for the locker itself is between you and them.</p></div></details>
+      <details><summary>What does getting started involve?</summary><div class="a"><p>We import your member and locker records from whatever you keep them in today. Your first label batches arrive registered to your venue, and we walk the first stocking with you. Then your team tags and scans the bottles into their lockers: scan the tag, then pick the wine from the catalog or enter it if it is new.</p></div></details>
+      <details><summary>Can we run it on the phones we already have?</summary><div class="a"><p>Yes. Horreum runs on any recent iPhone or Android phone, and scanning uses the phone’s camera.</p></div></details>
       <details><summary>What happens to our data if we stop?</summary><div class="a"><p>You receive a complete export — members, lockers, bottles, and the activity log — and your venue’s data is removed from the platform on the schedule set out in the <a href="/terms">terms</a>.</p></div></details>
-      <details><summary>Can we run it on the phones we already have?</summary><div class="a"><p>Yes. The staff app runs in the browser on any recent iPhone or Android phone and installs to the home screen; scanning uses the phone’s camera. There is no hardware to buy.</p></div></details>
     </div>
   </div>
 </section>

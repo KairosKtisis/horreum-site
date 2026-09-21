@@ -12,27 +12,16 @@ ABOUT = f'''
 <section class="sec">
   <div class="wrap--narrow prose">
     <p class="eyebrow">About</p>
-    <h1 style="font-size:clamp(36px,5vw,54px)">Built on the floor.</h1>
-    <p class="lead">Horreum was not designed in a conference room. It was built by someone carrying a tray.</p>
+    <h1>About Horreum.</h1>
+    <p class="lead">Horreum is reserve and locker management software for restaurants, clubs and wine bars, made by an independent company in Grand Rapids, Michigan.</p>
 
     <h2>The story</h2>
-    <p>Gabriel Collins has worked the front of house at a fine-dining chophouse in East Grand Rapids, Michigan for four years — server, bartender, expo, host, and now floor manager. The restaurant keeps wine lockers for its members: bottles bought from the list or brought from home, stored and served on request. The program is run by the wine program lead, and it is a good program. Gabe has helped keep it, and he has seen up close what it costs when the records disagree.</p>
-    <p>A locker program is a promise: your bottles are here, and we know exactly what they are. Keeping that promise with a spreadsheet, a binder and a good memory means conflicting records, unlabelled bottles, and a server searching a cooler while a table waits. Every disagreement is a conversation with a member that nobody wants to have. That is the cost — in time, in trust, and occasionally in wine.</p>
-    <p>So he built the thing he wished existed: one record that everyone works from, labels that cannot be confused, a pull that is tied to the exact bottle that left, and a member app that makes the program something worth talking about. He built it himself, outside of service, and it runs on that floor today.</p>
-
-    <blockquote>The record is the product. Everything else is how you show it.</blockquote>
+    <p>Horreum was founded by Gabriel Collins. He has worked in fine dining for four years — serving, bartending, running expo and the host stand — and has been a floor manager for the last year and a half.</p>
+    <p>Working around a wine locker program, he saw how much care goes into looking after members’ bottles, and how much of that care goes into the records: what is in each locker, where each bottle sits, what was opened and when. He also saw that most members never get to see their own collection.</p>
+    <p>Horreum is his answer to both. He designed and built it independently, on his own time and as its own company, for any venue that keeps wine for its members. It gives the venue one precise record to work from, and gives members an app that makes their collection something to enjoy.</p>
 
     <h2>The name</h2>
-    <p>A <i>horreum</i> was a Roman storehouse — a fortified building for grain, oil and wine, run on ledgers so careful that some survive two thousand years later. The glyph is a storehouse’s front: a pediment, two columns, and the bar across the door.</p>
-
-    <h2>What we believe</h2>
-    <ul>
-      <li><b>Members’ bottles are members’ property.</b> The software exists to keep that fact unarguable.</li>
-      <li><b>Restraint is a feature.</b> Every screen was cut down until only what the floor needs is left. Phones are small and service is fast.</li>
-      <li><b>Tasting notes are ours to write.</b> Every wine on the platform gets a long-form, guest-ready note in one voice, so a venue never has to staff that job.</li>
-      <li><b>Nothing edits the past.</b> The activity log is append-only. A correction is a new entry, not a changed one.</li>
-      <li><b>Built by request.</b> Every feature was asked for by someone doing the work. The roadmap is written by venues.</li>
-    </ul>
+    <p>A <i>horreum</i> was a Roman storehouse — a fortified building for grain, oil and wine, run on careful ledgers. The glyph is a storehouse’s front: a pediment, two columns, and the bar across the door.</p>
 
     <h2>The company</h2>
     <p>Horreum is made by HORREUM LLC, a Michigan company based in Grand Rapids and founded in 2026. It is independent and founder-owned.</p>
@@ -49,7 +38,7 @@ CONTACT = f'''
       <div>
         <p class="eyebrow">Contact</p>
         <h1 style="font-size:clamp(36px,5vw,54px)">See it on your floor.</h1>
-        <p class="lead">A thirty-minute walkthrough with the person who built it — on a call, or at your venue if you are in West Michigan. Bring your binder. Ask about pricing and you’ll have a number the same day.</p>
+        <p class="lead">A thirty-minute walkthrough with the person who built it — on a call, or at your venue if you are in West Michigan.</p>
         <p class="small">Prefer email? <a href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a>. Already a member or on staff at a venue? <a href="/support">Support is this way</a>.</p>
         <p class="small muted">HORREUM LLC · Grand Rapids, Michigan · Replies within one business day.</p>
       </div>

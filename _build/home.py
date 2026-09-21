@@ -6,14 +6,33 @@ def card(icon, title, text, cls="", tag=""):
     return f'<div class="card {cls}"><span class="ico">{ICON[icon]}</span><h3>{title}</h3><p>{text}</p></div>'
 
 # every screen is the phone's own 390:844 — the frame in site.css is drawn for exactly that shape
-DIMS = {"find": ("jpg", 390, 844), "locker": ("webp", 924, 2000), "hunt": ("webp", 924, 2000)}
+DIMS = {"find": ("jpg", 390, 844), "locker": ("webp", 924, 2000), "hunt": ("webp", 924, 2000),
+        "a-overview": ("webp", 720, 1604), "a-scan": ("webp", 720, 1604), "a-lockers": ("webp", 720, 1604)}   # a-* are Android captures
 def shot(name, alt, eager=False):
     ext, w, h = DIMS.get(name, ("webp", 654, 1415))
     load = 'fetchpriority="high"' if eager else 'loading="lazy"'
     return f'<img src="/assets/shots/{name}.{ext}?v=2" alt="{alt}" width="{w}" height="{h}" {load} decoding="async">'
 
 def phone(name, alt, small=False, eager=False):
-    return f'<div class="phone{" phone--sm" if small else ""}"><div class="phone-body">{shot(name, alt, eager)}</div></div>'
+    cls = "phone" + (" phone--sm" if small else "") + (" phone--android" if name.startswith("a-") else "")
+    return f'<div class="{cls}"><div class="phone-body">{shot(name, alt, eager)}</div></div>'
+
+TOUR = f'''
+<section class="sec">
+  <div class="wrap">
+    <div class="wrap--narrow center" style="margin-bottom:64px">
+      <p class="eyebrow">iPhone and Android</p>
+      <h2>Every new account is <em>walked through it.</em></h2>
+      <p class="lead">The first time someone signs in, Horreum takes them through the app stop by stop — the overview, the scanner, the lockers — on whichever phone they carry. It can be skipped at any time.</p>
+    </div>
+    <div class="trio trio--flat">
+      {phone("a-overview", "The staff tour on an Android phone, stop one: the venue at a glance — inventory value, bottles on hand, active lockers, open requests")}
+      {phone("a-scan", "The staff tour on an Android phone, stop two: scan a tag to open a bottle’s card and log a pull")}
+      {phone("a-lockers", "The staff tour on an Android phone, stop three: the lockers list, and what is inside one")}
+    </div>
+  </div>
+</section>
+'''
 
 
 HOME = f'''
@@ -21,12 +40,12 @@ HOME = f'''
   <div class="wrap">
     <p class="eyebrow">Wine reserve &amp; locker management</p>
     <h1>Every bottle, <em>accounted for.</em></h1>
-    <p class="lead">Horreum runs a venue’s wine locker program end to end — the ledger, the labels, the pulls — and gives every member a collection worth showing off. Built on the floor of a fine-dining chophouse, where it runs today.</p>
+    <p class="lead">Horreum runs a venue’s wine locker program end to end — the ledger, the labels, the pulls — and gives every member a collection worth showing off.</p>
     <div class="cta-row">
       <a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo {ARR}</a>
       <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
     </div>
-    <p class="hero-note">No hardware to buy · Runs on the phones your staff already carry · iPhone and Android</p>
+    <p class="hero-note">Runs on the phones your staff already carry · iPhone and Android</p>
   </div>
   <div class="trio" aria-label="The Horreum member app">
     {phone("locker", "A member’s locker in the Horreum app: a dark wooden cabinet holding their bottles, with bottle and wine counts above", eager=True)}
@@ -38,14 +57,14 @@ HOME = f'''
 <section class="sec">
   <div class="wrap">
     <div class="wrap--narrow center" style="margin-bottom:64px">
-      <p class="eyebrow">The problem</p>
-      <h2>A locker program runs on trust. <em>Trust runs on records.</em></h2>
-      <p class="lead">Members leave bottles worth real money in your care. The program only works while everyone’s records agree — and a spreadsheet, a binder and someone’s memory rarely do.</p>
+      <p class="eyebrow">Why Horreum</p>
+      <h2>A locker program runs on trust. <em>Horreum keeps the record behind it.</em></h2>
+      <p class="lead">Venues put real care into looking after their members’ bottles. As a program grows, more of that care goes into the records — what is in each locker, where each bottle sits, what was opened and when. Horreum carries that part, so your team can stay with the guest.</p>
     </div>
     <div class="grid grid--3">
-      {card("ledger", "Conflicting records", "Two lists, one bottle, and a member who remembers it differently. Every disagreement is a conversation you would rather not have.")}
-      {card("log", "No chain of custody", "Who stocked it, who pulled it, when, and for whom. Without an append-only log, nobody can answer with certainty — and certainty is the product.")}
-      {card("find", "The search during service", "A guest asks for their bottle at 7:45 on a Saturday. The server goes looking. The table waits, and the wrong bottle is one guess away.")}
+      {card("ledger", "One shared record", "Every member, locker and bottle in one place, so the floor, the bar and the office are always looking at the same thing.")}
+      {card("log", "A history for every bottle", "Who stocked it, who pulled it, when and for whom — kept as the work happens, so the answer is there whenever a member asks.")}
+      {card("find", "The right bottle, right away", "At 7:45 on a Saturday, the server is walked straight to the member’s bottle and where it sits. The table isn’t kept waiting.")}
     </div>
   </div>
 </section>
@@ -113,6 +132,7 @@ HOME = f'''
   </div>
 </section>
 
+{TOUR}
 <section class="atlas">
   <div class="wrap">
     <div class="copy">
@@ -156,22 +176,12 @@ HOME = f'''
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="split">
-      <div>
-        <p class="eyebrow">Pricing</p>
-        <h2>Priced according to <em>your needs.</em></h2>
-        <p class="lead">No per-seat fees, no per-member fees, no hardware to buy. Every locker program is a different size, so the price follows yours — tell us about it and you’ll have a number the same day.</p>
-        <div class="cta-row"><a class="btn btn--gold" href="/contact?kind=pricing">Ask about pricing {ARR}</a><a class="btn btn--ghost" href="/pricing">What’s included</a></div>
-      </div>
-      <div class="grid grid--2">
-        <div class="stat"><b>0</b><span>Per-seat fees</span></div>
-        <div class="stat"><b>0</b><span>Per-member fees</span></div>
-        <div class="stat"><b>0</b><span>Hardware to buy</span></div>
-        <div class="stat"><b>1</b><span>Record of truth</span></div>
-      </div>
-    </div>
+<section class="sec center">
+  <div class="wrap--narrow">
+    <p class="eyebrow">Pricing</p>
+    <h2>Contact us for pricing.</h2>
+    <p class="lead">Tell us a little about your program and we’ll be in touch.</p>
+    <div class="cta-row" style="margin-top:30px"><a class="btn btn--gold" href="/contact?kind=pricing">Contact us {ARR}</a></div>
   </div>
 </section>
 
@@ -196,7 +206,7 @@ HOME = f'''
 <section class="finale">
   <div class="wrap--narrow">
     <h2>See it on <em>your floor.</em></h2>
-    <p class="lead">A thirty-minute walkthrough with the person who built it. Bring your binder.</p>
+    <p class="lead">A thirty-minute walkthrough with the person who built it.</p>
     <div class="cta-row" style="margin-top:34px"><a class="btn btn--gold btn--lg" href="/contact?kind=demo">Request a demo {ARR}</a><a class="btn btn--ghost btn--lg" href="mailto:gabriel@horreum.cloud" data-hz="email">gabriel@horreum.cloud</a></div>
   </div>
 </section>

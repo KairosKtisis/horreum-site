@@ -6,7 +6,7 @@ import datetime, html
 SITE = "https://horreum.cloud"
 APP  = "https://app.horreum.cloud"
 YEAR = datetime.date.today().year
-V    = "30"
+V    = "31"
 THEME = "dark"   # "dark" or "light" — the whole site wears one. Flip it, run build.py, done.
 THEME_COLOR = {"dark": "#0B0B0C", "light": "#F5F1E8"}[THEME]   # asset stamp: bump when site.css / site.js change, so a CDN never serves the old pair
 

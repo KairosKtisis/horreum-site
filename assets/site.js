@@ -75,8 +75,8 @@
         return r.json().then(function (j) { if (!r.ok) throw new Error((j && (j.message || j.hint)) || 'Something went wrong.'); return j; });
       }).then(function () {
         var done = document.createElement('div'); done.className = 'form-done';
-        done.innerHTML = '<div class="eyebrow">Received</div><h3>' + (data.kind === 'demo' ? 'Thank you — we’ll be in touch.' : data.kind === 'pricing' ? 'Thank you — your number is on its way.' : 'Thank you — message received.') + '</h3>' +
-          '<p class="small">' + (data.kind === 'demo' ? 'Expect a reply from a real person within one business day.' : data.kind === 'pricing' ? 'Expect pricing for your program from a real person the same business day.' : 'We read every message and reply within one business day.') + '</p>';
+        done.innerHTML = '<div class="eyebrow">Received</div><h3>' + (data.kind === 'demo' ? 'Thank you — we’ll be in touch.' : data.kind === 'pricing' ? 'Thank you — we’ll be in touch.' : 'Thank you — message received.') + '</h3>' +
+          '<p class="small">' + (data.kind === 'demo' ? 'Expect a reply from a real person within one business day.' : data.kind === 'pricing' ? 'Expect a reply from a real person within one business day.' : 'We read every message and reply within one business day.') + '</p>';
         form.parentNode.replaceChild(done, form);
       }).catch(function (err) {
         fail((err && err.message) || 'Something went wrong. Email us instead: ' + HZ.email);
