@@ -3,6 +3,7 @@
   "short_name": "Horreum",
   "start_url": "/",
   "display": "browser",
+  "orientation": "portrait",
   "background_color": "#0B0B0C",
   "theme_color": "#0B0B0C",
   "icons": [

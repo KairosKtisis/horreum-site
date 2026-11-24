@@ -143,3 +143,61 @@
     setTimeout(function () { var l = document.querySelectorAll('.rv:not(.in)'); for (var i = 0; i < l.length; i++) { var r = l[i].getBoundingClientRect(); if (r.top < innerHeight) l[i].classList.add('in'); } }, 1600);
   });
 })();
+
+/* Gabe, Nov 24 2026, 12:24 AM: "The app should not rotate with my phone, should always be portrait. Ensure this is true across
+   ios, android, the web app and the website." A browser gives a page no way to lock rotation, so on a phone held sideways the
+   page stays put under one plain line, "Turn your phone upright", until it is. Phones only - a tablet or a laptop turns freely.
+   The same guard as the app's assets/hz-upright.js (horreum-platform R878); the phone test reads the screen, not the window. */
+(function () {
+  'use strict';
+  if (window.__hzUpright) return;
+  window.__hzUpright = 1;
+  try { if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) return; } catch (e) {}
+  var coarse = window.matchMedia ? window.matchMedia('(pointer: coarse)') : null;
+  function phone() {
+    var s = Math.min(screen.width || 0, screen.height || 0);   // the short side, whichever way the phone is held
+    return s > 0 && s < 500 && (!coarse || coarse.matches);
+  }
+  function sideways() {
+    var t = screen.orientation && screen.orientation.type;
+    if (t) return t.indexOf('landscape') === 0;
+    if (typeof window.orientation === 'number') return Math.abs(window.orientation) === 90;
+    return window.innerWidth > window.innerHeight;
+  }
+  var el = null;
+  function build() {
+    var st = document.createElement('style');
+    st.textContent =
+      '#hz-upright{display:none;position:fixed;inset:0;z-index:2147483000;flex-direction:column;align-items:center;justify-content:center;' +
+      'gap:14px;padding:24px;text-align:center;-webkit-user-select:none;user-select:none;touch-action:none}' +
+      'html.hz-sideways #hz-upright{display:flex}html.hz-sideways,html.hz-sideways body{overflow:hidden}' +
+      '#hz-upright svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7}' +
+      '#hz-upright p{margin:0;font:400 21px/1.3 var(--display,"Playfair Display",Georgia,serif);letter-spacing:.01em}';
+    document.head.appendChild(st);
+    el = document.createElement('div');
+    el.id = 'hz-upright';
+    el.setAttribute('role', 'alert');
+    el.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><p>Turn your phone upright</p>';
+    document.body.appendChild(el);
+  }
+  function solid(c) { return c && c !== 'transparent' && !/rgba\([^)]*,\s*0\)$/.test(c); }
+  function paint() {   /* the page's own ground and ink, whatever theme it wears */
+    var b = getComputedStyle(document.body), h = getComputedStyle(document.documentElement);
+    el.style.background = solid(b.backgroundColor) ? b.backgroundColor : (solid(h.backgroundColor) ? h.backgroundColor : '#0B0C11');
+    el.style.color = b.color || '#EFE6D6';
+  }
+  function apply() {
+    if (!document.body) return;
+    var on = phone() && sideways();
+    document.documentElement.classList.toggle('hz-sideways', on);
+    if (!on) return;
+    if (!el) build();
+    paint();
+    try { var a = document.activeElement; if (a && a !== document.body && a.blur) a.blur(); } catch (e) {}   // the keyboard goes down too
+  }
+  function soon() { apply(); setTimeout(apply, 250); }   // some phones report the new orientation a beat late
+  if (screen.orientation && screen.orientation.addEventListener) screen.orientation.addEventListener('change', soon);
+  window.addEventListener('orientationchange', soon);
+  window.addEventListener('resize', apply);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else apply();
+})();
